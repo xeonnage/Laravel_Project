@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">My Profile</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <p><strong>Name :</strong>{!! Auth::user()->name !!}</p>
-                    <p><strong>Email :</strong>{!! Auth::user()->email !!}</p>
+                    {{-- You are logged in! --}}
+                    <p><strong>Name : </strong>{!! Auth::user()->name !!}</p>
+                    <p><strong>Email : </strong>{!! Auth::user()->email !!}</p>
 
+                    <a href="admin/dormitory" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                    <a href="admin/dormitory" class="btn btn-primary">Management</a>
+                    <a href="" class="btn btn-success">Home</a>
                 </div>
             </div>
         </div>
