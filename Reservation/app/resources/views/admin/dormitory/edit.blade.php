@@ -1,0 +1,37 @@
+@extends('layouts.admin')
+@section('body')
+@foreach($dormitory as $dorm)
+@endforeach
+<div class="table-responsive">
+    <p><h2>แก้ไข้ข้อมูล หอพักนิสิต</h2></p>
+    <form action="{{ route('dormitory.update',$dorm->id) }}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        @method('PUT')
+
+
+        <div class="form-group">
+            <label for="Name_EN">ชื่อหอพักภาษาอังกฤษ</label>
+            <input type="text" class="form-control" name="Name_EN" id="Name_EN" value="{{ $dorm->Name_EN }}">
+        </div>
+        <div class="form-group">
+            <label for="Name_TH">ชื่อหอพักภาษาไทย</label>
+            <input type="text" class="form-control" name="Name_TH" id="Name_TH" value="{{ $dorm->Name_TH }}">
+        </div>
+        <div class="form-group">
+            <label for="Description">ประเภทหอพัก</label>
+            <div {{-- class = "col-sm-4" --}}>
+                <select class="form-control" name="Description">
+                    <option style="color: green" value="{{ $dorm->Description }}">สถานะปัจบัน: {{ $dorm->Description }} </option>
+                    <option value="หอพักนิสิต ชาย">แก้ไขเป็น: หอพักนิสิต ชาย</option>
+                    <option value="หอพักนิสิต หญิง">แก้ไขเป็น: หอพักนิสิต หญิง</option>
+                </select>
+            </div>
+            {{-- <input type="text" class="form-control" name="Description" id="Description" placeholder="ประเภท"> --}}
+        </div>
+
+
+        <button type="submit" name="submit" class="btn btn-warning">แก้ไขข้อมูล</button>
+        <button class="btn btn-secondary" type="reset">ยกเลิก</button>
+
+</div>
+@endsection
