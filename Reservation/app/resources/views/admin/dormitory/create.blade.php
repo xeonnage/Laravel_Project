@@ -35,7 +35,8 @@
             {{-- <input type="text" class="form-control" name="Description" id="Description" placeholder="ประเภท"> --}}
         </div>
 
-        <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        <button type="submit" name="submit" class="btn btn-success">เพื่มข้อมูล</button>
+        <button class="btn btn-secondary" type="reset">ยกเลิก</button>
     </form>
 </div>
 @endsection

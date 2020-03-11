@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\DormitoryModel;
 use DB;
 
 class DormitoryController extends Controller
@@ -37,22 +38,42 @@ class DormitoryController extends Controller
      */
     public function store(Request $request)
     {
+        // เก็บข้อมูลผ่าน DB
+        // $request->validate([
+        //     'Name_EN' => 'required|unique:Name_EN',
+        //     'Name_TH' => 'required',
+        //     'Description' => 'required',
+
+        // ]);
+
+        // DB::table('Dormitory')
+        //     ->insert([
+        //     'Name_EN' => $request->Name_EN,
+        //     'Name_TH' => $request->Name_TH,
+        //     'Description' => $request->Description,
+
+
+        // ]);
+        // return redirect('admin/dormitory');
+
+
+        //เก็บข้อมูลผ่าน Model(ใช้บันทึกเวลาเพื่มข้อมูล)
+        $Dormitory = new DormitoryModel;
+
         $request->validate([
-            'Name_EN' => 'required|unique:Name_EN',
-            'Name_TH' => 'required',
+            'Name_EN' => 'required|unique:Dormitory',
+            'Name_TH' => 'required|unique:Dormitory',
             'Description' => 'required',
 
         ]);
 
-        DB::table('Dormitory')
-            ->insert([
-            'Name_EN' => $request->Name_EN,
-            'Name_TH' => $request->Name_TH,
-            'Description' => $request->Description,
+        $Dormitory->Name_EN = $request->Name_EN;
+        $Dormitory->Name_TH = $request->Name_TH;
+        $Dormitory->Description = $request->Description;
 
-
-        ]);
+        $Dormitory->save();
         return redirect('admin/dormitory');
+
     }
 
     /**
