@@ -28,7 +28,7 @@
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
 
-        <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">ประเภท</a>
+        <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">ประเภทห้องพัก</a>
         <a href="/admin/dormitory" class="list-group-item list-group-item-action bg-light">หอพัก</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Order</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">User</a>
