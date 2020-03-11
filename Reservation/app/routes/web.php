@@ -11,6 +11,8 @@
 |
 */
 Route::Resource('admin/dormitory','Admin\DormitoryController');
+Route::Resource('admin/roomtype','Admin\DormitoryController');
+Route::Resource('admin/rooms','Admin\DormitoryController');
 
 
 Route::get('/', function () {

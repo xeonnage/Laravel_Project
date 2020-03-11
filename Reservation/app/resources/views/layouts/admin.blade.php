@@ -28,10 +28,40 @@
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
 
-        <a href="/admin/createCategory" class="list-group-item list-group-item-action bg-light">ประเภทห้องพัก</a>
+        <a href="/admin/rooms" class="list-group-item list-group-item-action bg-light">ห้องพัก</a>
+        <a href="/admin/roomtype" class="list-group-item list-group-item-action bg-light">ประเภทห้องพัก</a>
         <a href="/admin/dormitory" class="list-group-item list-group-item-action bg-light">หอพัก</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Order</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">User</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">ประเภทปัญหา</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">ปัญหาของผุ้ใช้</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">การจองห้องพัก</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>
+
+        <a href="#" class="list-group-item list-group-item-action bg-light">พนักงาน</a>
+
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ปัญหา
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">ปัญหาที่แจ้งของมา</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">ประเภทปัญหา</a>
+            </div>
+        </div>
+
+        <li class="list-group-item list-group-item-action bg-light">
+            <a class="#" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="list-group-item  bg-light dropdown-item" href="#">ปัญหา 1</a>
+              <a class="list-group-item  bg-light dropdown-item" href="#">ปัญหา 2</a>
+              <a class="list-group-item  bg-light dropdown-item" href="#">Link 3</a>
+            </div>
+        </li>
+
       </div>
     </div>
     <div id="page-content-wrapper">
