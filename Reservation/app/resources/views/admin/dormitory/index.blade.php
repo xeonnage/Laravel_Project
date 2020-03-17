@@ -39,9 +39,11 @@
                         <form method="post" action="{{ route('dormitory.destroy',$dorm->id) }}">
                             @csrf
 
+                            <a class="btn btn-primary" href="{{ route('dormitory.show',$dorm->id) }}" >แสดงข้อมูล</a>
                             <a class="btn btn-warning" href="{{ route('dormitory.edit',$dorm->id) }}" >แก้ไขข้อมูล</a>
+
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">ลบข้อมูล</button>
+                            {{-- <button class="btn btn-danger" type="submit">ลบข้อมูล</button> --}}
 
                         </form>
                         </center>

@@ -33,5 +33,13 @@
         <button type="submit" name="submit" class="btn btn-warning">แก้ไขข้อมูล</button>
         <button class="btn btn-secondary" type="reset">ยกเลิก</button>
 
+        <td>
+            <form action="{{ route('dormitory.destroy',$dorm->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" >ลบ</button>
+            </form>
+        </td>
+
 </div>
 @endsection

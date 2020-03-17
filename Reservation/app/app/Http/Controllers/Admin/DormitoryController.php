@@ -84,7 +84,8 @@ class DormitoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin/dormitory/show',
+                    ['dormitory' => DormitoryModel::findOrFail($id)]);
     }
 
     /**

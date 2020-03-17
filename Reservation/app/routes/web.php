@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::Resource('admin/dormitory','Admin\DormitoryController');
 Route::Resource('admin/roomtype','Admin\RoomtypeController');
 Route::Resource('admin/rooms','Admin\RoomsController');

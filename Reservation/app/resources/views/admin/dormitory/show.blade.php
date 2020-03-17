@@ -1,11 +1,12 @@
-
 @extends('layouts.admin')
 @section('body')
+@foreach($dormitory as $dorm)
+@endforeach
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
         <div class="card">
-            <div class="card-header">ประเภทห้องพัก
+            <div class="card-header">ข้อมูลหอพัก
                 {{-- <a href="#"> โอนเงิน </a> --}}
                 <a  class="btn btn-success mr-2 "
                     style="position:absolute ; right:0 ; top:5px"
@@ -28,36 +29,12 @@
                     {{-- <th>Operation </th> --}}
                 </thead>
                 <?php   $i=1;?>
-                @foreach($roomtype as $rmty)
-
-                <tbody>
-                <tr>
-                    <td>{{ $i++ }} </td>
-                    {{-- <td>{{ $rmty->id}}</td> --}}
-                    <td>{{ $rmty->Dormitory_Name}}</td>
-                    <td>{{ $rmty->Description}}</td>
-                    <td>{{ $rmty->TypeName}}</td>
-                    <td><center> {{ $rmty->NemberPeople}} คน/ห้อง </center></td>
-
-
-                    <td>
-                        <center>
-                        <form method="post" action="{{ route('roomtype.destroy',$rmty->id) }}">
-                            @csrf
-
-                            <a class="btn btn-warning w-15" href="{{ route('roomtype.edit',$rmty->id) }}" >แก้ไขข้อมูล</a>
-                            @method('DELETE')
-                            <button class="btn btn-danger w-15" type="submit">ลบข้อมูล ดดด</button>
-
-                        </form>
-                        </center>
-                    </td>
-                </tr>
-                @endforeach
-                </tbody>
+                    <tr>
+                        <a  class="btn btn-success mr-2 " action="{{ route('dormitory.destroy',$dorm->id) }}">เพิ่มประเภทห้อพัก </a>
+                    </tr>
             </table>
         </div>
-        </div>
+
     </div>
 </div>
 @endsection
