@@ -11,7 +11,7 @@
 
         <div class="form-group">
             <label for="Name_EN">ชื่อหอพักภาษาอังกฤษ</label>
-            <input type="text" class="form-control" name="Name_English" id="Name_English" value="{{ $dorm->Name_English }}">
+            <input type="text" class="form-control" name="Name_Eng" id="Name_Eng" value="{{ $dorm->Name_Eng }}">
         </div>
         <div class="form-group">
             <label for="Name_TH">ชื่อหอพักภาษาไทย</label>

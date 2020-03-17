@@ -15,7 +15,7 @@ class CreateTableDormitory extends Migration
     {
         Schema::create('Dormitory', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Name_English');
+            $table->string('Name_Eng');
             $table->string('Name_Thai');
             $table->string('Description');
             $table->timestamps();
