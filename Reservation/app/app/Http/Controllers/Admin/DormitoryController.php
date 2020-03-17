@@ -109,8 +109,8 @@ class DormitoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Name_EN' => 'required',
-            'Name_TH' => 'required',
+            'Name_Eng' => 'required',
+            'Name_Thai' => 'required',
             'Description' => 'required',
 
         ]);
@@ -118,8 +118,8 @@ class DormitoryController extends Controller
         DB::table('Dormitory')
             ->where('id','=',$id)
             ->update([
-            'Name_EN' => $request->Name_EN,
-            'Name_TH' => $request->Name_TH,
+            'Name_Eng' => $request->Name_Eng,
+            'Name_Thai' => $request->Name_Thai,
             'Description' => $request->Description,
 
         ]);
