@@ -34,7 +34,8 @@
                 <tr>
                     <td>{{ $i++ }} </td>
                     {{-- <td>{{ $rmty->id}}</td> --}}
-                    <td>{{ $rmty->Dormitory_Name}}</td>
+                    {{-- <td>{{ $rmty->Dormitory_ID}}</td> --}}
+                    <td>{{ $rmty->Name_Thai}}</td>
                     <td>{{ $rmty->Description}}</td>
                     <td>{{ $rmty->TypeName}}</td>
                     <td><center> {{ $rmty->NemberPeople}} คน/ห้อง </center></td>
@@ -45,9 +46,9 @@
                         <form method="post" action="{{ route('roomtype.destroy',$rmty->id) }}">
                             @csrf
 
-                            <a class="btn btn-warning w-15" href="{{ route('roomtype.edit',$rmty->id) }}" >แก้ไขข้อมูล</a>
+                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->id) }}" >แก้ไขข้อมูล</a>
                             @method('DELETE')
-                            <button class="btn btn-danger w-15" type="submit">ลบข้อมูล ดดด</button>
+                            <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
 
                         </form>
                         </center>

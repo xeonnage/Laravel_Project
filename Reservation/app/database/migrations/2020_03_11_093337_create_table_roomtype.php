@@ -17,7 +17,7 @@ class CreateTableRoomtype extends Migration
             $table->bigIncrements('id');
             $table->string('TypeName');
             $table->integer('NemberPeople');
-            $table->string('Dormitory_Name');
+            $table->string('Dormitory_ID');
             $table->timestamps();
         });
     }
