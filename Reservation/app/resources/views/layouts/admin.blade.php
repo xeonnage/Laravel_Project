@@ -39,28 +39,25 @@
         <a href="#" class="list-group-item list-group-item-action bg-light">พนักงาน</a>
 
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-danger w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               ปัญหา
             </button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" style="position:static">
               <a class="dropdown-item" href="#">ปัญหาที่แจ้งของมา</a>
               <a class="dropdown-item" href="#">Something else here</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">ประเภทปัญหา</a>
             </div>
-        </div>
 
-        <li class="list-group-item list-group-item-action bg-light">
-            <a class="#" href="#" id="navbardrop" data-toggle="dropdown">
-              Dropdown link
-            </a>
-            <div class="dropdown-menu">
-              <a class="list-group-item  bg-light dropdown-item" href="#">ปัญหา 1</a>
-              <a class="list-group-item  bg-light dropdown-item" href="#">ปัญหา 2</a>
-              <a class="list-group-item  bg-light dropdown-item" href="#">Link 3</a>
-            </div>
-        </li>
+            <a href="#" class="list-group-item list-group-item-action bg-light dropdown-toggle" id="navbardrop" data-toggle="dropdown"> ปัญหา</a>
+            <li class="list-group-item list-group-item-action bg-light">
+                <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                <a class="list-group-item  text-secondary dropdown-item" href="#">ปัญหา 1</a>
+                <a class="list-group-item  text-secondary dropdown-item" href="#">ปัญหา 2</a>
+                <a class="list-group-item  text-secondary dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+
 
       </div>
     </div>

@@ -61,14 +61,14 @@ class DormitoryController extends Controller
         $Dormitory = new DormitoryModel;
 
         $request->validate([
-            'Name_EN' => 'required|unique:Dormitory',
-            'Name_TH' => 'required|unique:Dormitory',
+            'Name_English' => 'required|unique:Dormitory',
+            'Name_Thai' => 'required|unique:Dormitory',
             'Description' => 'required',
 
         ]);
 
-        $Dormitory->Name_EN = $request->Name_EN;
-        $Dormitory->Name_TH = $request->Name_TH;
+        $Dormitory->Name_English = $request->Name_English;
+        $Dormitory->Name_Thai = $request->Name_Thai;
         $Dormitory->Description = $request->Description;
 
         $Dormitory->save();

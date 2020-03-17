@@ -17,11 +17,11 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="Name_EN">ชื่อหอพักภาษาอังกฤษ <font style="color:red;"> * </font></label>
-            <input type="text" class="form-control" name="Name_EN" id="Name_EN" placeholder="Tao-Thong Student Dormitory">
+            <input type="text" class="form-control" name="Name_English" id="Name_English" placeholder="Tao-Thong Student Dormitory">
         </div>
         <div class="form-group">
             <label for="Name_TH">ชื่อหอพักภาษาไทย <font style="color:red;"> * </font></label>
-            <input type="text" class="form-control" name="Name_TH" id="Name_TH" placeholder="หอพักนักศึกษา เทา-ทอง">
+            <input type="text" class="form-control" name="Name_Thai" id="Name_Thai" placeholder="หอพักนักศึกษา เทา-ทอง">
         </div>
         <div class="form-group">
             <label for="Description">ประเภทหอพัก <font style="color:red;"> * </font></label>

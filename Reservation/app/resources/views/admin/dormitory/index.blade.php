@@ -30,8 +30,8 @@
                 <tbody>
                 <tr>
                     <td>{{ $dorm->id}}</td>
-                    <td>{{ $dorm->Name_EN}}</td>
-                    <td>{{ $dorm->Name_TH}}</td>
+                    <td>{{ $dorm->Name_English}}</td>
+                    <td>{{ $dorm->Name_Thai}}</td>
                     <td>{{ $dorm->Description}}</td>
 
                     <td>

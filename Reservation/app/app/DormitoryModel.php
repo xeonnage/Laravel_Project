@@ -8,8 +8,8 @@ class DormitoryModel extends Model
 {
     protected $table="Dormitory";
     protected $fillable = [
-        'Name_EN',
-        'Name_TH',
+        'Name_English',
+        'Name_Thai',
         'Description',
 
     ];

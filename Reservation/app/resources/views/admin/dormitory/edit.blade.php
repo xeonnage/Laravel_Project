@@ -11,11 +11,11 @@
 
         <div class="form-group">
             <label for="Name_EN">ชื่อหอพักภาษาอังกฤษ</label>
-            <input type="text" class="form-control" name="Name_EN" id="Name_EN" value="{{ $dorm->Name_EN }}">
+            <input type="text" class="form-control" name="Name_English" id="Name_English" value="{{ $dorm->Name_English }}">
         </div>
         <div class="form-group">
             <label for="Name_TH">ชื่อหอพักภาษาไทย</label>
-            <input type="text" class="form-control" name="Name_TH" id="Name_TH" value="{{ $dorm->Name_TH }}">
+            <input type="text" class="form-control" name="Name_Thai" id="Name_Thai" value="{{ $dorm->Name_Thai }}">
         </div>
         <div class="form-group">
             <label for="Description">ประเภทหอพัก</label>
