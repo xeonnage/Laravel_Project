@@ -13,7 +13,7 @@
             <label for="Description">ชื่อหอพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
                 <select class="form-control" name="Dormitory_Name">
-                    <option value="{{ $rmty->id }}">สถานะปัจุบัน: {{ $rmty->Name_Thai }} </option>
+                    <option value="{{ $rmty->Dormitory_ID }}">สถานะปัจุบัน: {{ $rmty->Name_Thai }} </option>
                     @foreach($dormitory as $dormitory)
                     <option value = "{{$dormitory->id}}">
                         {{$dormitory->Name_Thai}}

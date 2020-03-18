@@ -13,7 +13,7 @@
 
 
 Route::Resource('admin/dormitory','Admin\DormitoryController');
-Route::Resource('admin/roomtype','Admin\RoomtypeController');
+Route::Resource('admin/roomtype','Admin\RoomTypeController');
 Route::Resource('admin/rooms','Admin\RoomsController');
 
 

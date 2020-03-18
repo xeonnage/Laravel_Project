@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\DormitoryModel;
-use App\RoomtypeModel;
+use App\RoomTypeModel;
 use DB;
 
-class RoomtypeController extends Controller
+
+class RoomTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,10 @@ class RoomtypeController extends Controller
      */
     public function index()
     {
-        $roomtype = DB::table('Roomtype')
-                    ->join('Dormitory','Dormitory.id','=','Roomtype.Dormitory_ID')
+        $roomtype = DB::table('RoomType')
+                    ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
                     ->orderBy('Dormitory.id')
-                    ->orderBy('Roomtype.TypeName')
+                    ->orderBy('RoomType.TypeName')
                     ->get();
         return view('admin.roomtype.index',compact('roomtype'));
     }
@@ -32,7 +33,7 @@ class RoomtypeController extends Controller
      */
     public function create()
     {
-        $roomtype = DB::table('Roomtype')->get();
+        $roomtype = DB::table('RoomType')->get();
         $dormitory = DormitoryModel::orderBy('id')->get();
         return view('admin.roomtype.create',compact('roomtype','dormitory'));
     }
@@ -45,7 +46,7 @@ class RoomtypeController extends Controller
      */
     public function store(Request $request)
     {
-        $Roomtype = new RoomtypeModel;
+        $Roomtype = new RoomTypeModel;
 
         $request->validate([
             'TypeName'=>'required',
@@ -71,7 +72,7 @@ class RoomtypeController extends Controller
     public function show($id)
     {
         return view('admin/roomtype/show',
-        ['roomtype' => RoomtypeModel::findOrFail($id)]);
+        ['roomtype' => RoomTypeModel::findOrFail($id)]);
     }
 
     /**
@@ -82,14 +83,13 @@ class RoomtypeController extends Controller
      */
     public function edit($id)
     {
-
         // $roomtype = DB::table('Roomtype')->get();
         // $dormitory = DormitoryModel::orderBy('id')->get();
         // return view('admin.roomtype.edit',compact('roomtype','dormitory'));
 
         $dormitory = DormitoryModel::orderBy('id')->get();
-        $roomtype = DB::table("Roomtype")
-                    ->join('Dormitory','Dormitory.id','=','Roomtype.Dormitory_ID')
+        $roomtype = DB::table("RoomType")
+                    ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
                     ->get();
         return view('admin/roomtype/edit',compact('roomtype','dormitory'));
     }
@@ -103,14 +103,13 @@ class RoomtypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'TypeName'=>'required',
             'NemberPeople'=>'required',
             'Dormitory_ID'=>'required',
 
         ]);
-        DB::table('roomtype')
+        DB::table('RoomType')
             ->where('id','=',$id)
             ->update([
             'TypeName' => $request->TypeName,
@@ -128,7 +127,7 @@ class RoomtypeController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('Roomtype')->where('id','=',$id)->delete();
+        DB::table('RoomType')->where('id','=',$id)->delete();
         return redirect('admin/roomtype');
     }
 }
