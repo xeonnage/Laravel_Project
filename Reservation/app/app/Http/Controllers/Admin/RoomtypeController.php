@@ -22,6 +22,7 @@ class RoomTypeController extends Controller
                     ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
                     ->orderBy('Dormitory.id')
                     ->orderBy('RoomType.TypeName')
+                    ->select("*","RoomType.id as roomTypeId")
                     ->get();
         return view('admin.roomtype.index',compact('roomtype'));
     }
@@ -89,7 +90,7 @@ class RoomTypeController extends Controller
 
         $dormitory = DormitoryModel::orderBy('id')->get();
         $roomtype = DB::table("RoomType")
-                    ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
+                    ->where('id','=',$id)
                     ->get();
         return view('admin/roomtype/edit',compact('roomtype','dormitory'));
     }

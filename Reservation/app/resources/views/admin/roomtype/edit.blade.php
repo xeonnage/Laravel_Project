@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 @section('body')
 @foreach($roomtype as $rmty)
+
 @endforeach
 <div class="table-responsive">
-
+ssss
     <p><h2>แก้ไข้ข้อมูล ห้องพัก</h2></p>
     <form action="{{ route('roomtype.update',$rmty->id) }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -12,12 +13,21 @@
         <div class="form-group">
             <label for="Description">ชื่อหอพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
-                <select class="form-control" name="Dormitory_Name">
-                    <option value="{{ $rmty->Dormitory_ID }}">สถานะปัจุบัน: {{ $rmty->Name_Thai }} </option>
+                {{-- <select class="form-control" name="Dormitory_Name"> --}}
+                <select class="form-control" name="Dormitory_ID">
+
+                    {{-- <option value="{{ $rmty->Dormitory_ID }}">สถานะปัจุบัน: {{ $rmty->Name_Thai }} </option> --}}
                     @foreach($dormitory as $dormitory)
-                    <option value = "{{$dormitory->id}}">
-                        {{$dormitory->Name_Thai}}
-                    </option>
+
+                    @if ($dormitory->id == $rmty->Dormitory_ID)
+                        <option selected value = "{{$dormitory->id}}">
+                            {{$dormitory->Name_Thai}} --สถานะปัจุบัน--
+                        </option>
+                    @else
+                        <option value = "{{$dormitory->id}}">
+                            {{$dormitory->Name_Thai}}
+                        </option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -40,8 +50,12 @@
         </div>
 
 
+
+
+
         <button type="submit" name="submit" class="btn btn-warning">แก้ไขข้อมูล</button>
         <button class="btn btn-secondary" type="reset">ยกเลิก</button>
+
 
 
 

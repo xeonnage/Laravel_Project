@@ -29,7 +29,6 @@
                 </thead>
                 <?php   $i=1;?>
                 @foreach($roomtype as $rmty)
-
                 <tbody>
                 <tr>
                     <td>{{ $i++ }} </td>
@@ -43,10 +42,10 @@
 
                     <td>
                         <center>
-                        <form method="post" action="{{ route('roomtype.destroy',$rmty->id) }}">
+                        <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
                             @csrf
 
-                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->id) }}" >แก้ไขข้อมูล</a>
+                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
                             @method('DELETE')
                             <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
 
