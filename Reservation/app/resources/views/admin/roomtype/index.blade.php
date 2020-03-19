@@ -37,7 +37,7 @@
                     <td>{{ $rmty->Name_Thai}}</td>
                     <td>{{ $rmty->Description}}</td>
                     <td>{{ $rmty->TypeName}}</td>
-                    <td><center> {{ $rmty->NemberPeople}} คน/ห้อง </center></td>
+                    <td><center> {{ $rmty->NumberPeople}} คน/ห้อง </center></td>
 
 
                     <td>

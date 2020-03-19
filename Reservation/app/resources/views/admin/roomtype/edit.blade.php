@@ -4,7 +4,6 @@
 
 @endforeach
 <div class="table-responsive">
-ssss
     <p><h2>แก้ไข้ข้อมูล ห้องพัก</h2></p>
     <form action="{{ route('roomtype.update',$rmty->id) }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -46,7 +45,7 @@ ssss
 
         <div class="form-group">
             <label for="Name_TH">จำนวนคนทั้งหมด/ห้อง <label style="color:red;"> * </label></label>
-            <input type="text" class="form-control" name="NemberPeople" id="NemberPeople" value="{{ $rmty->NemberPeople }}">
+            <input type="text" class="form-control" name="NumberPeople" id="NumberPeople" value="{{ $rmty->NumberPeople }}">
         </div>
 
 

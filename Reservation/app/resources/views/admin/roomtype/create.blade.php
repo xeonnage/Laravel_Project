@@ -47,7 +47,7 @@
 
         <div class="form-group">
             <label for="Name_TH">จำนวนคนทั้งหมด/ห้อง <label style="color:red;"> * </label></label>
-            <input type="text" class="form-control" name="NemberPeople" id="NemberPeople" placeholder="จำนวนคน : 4 คน ">
+            <input type="text" class="form-control" name="NumberPeople" id="NumberPeople" placeholder="จำนวนคน : 4 คน ">
         </div>
 
 

@@ -25,6 +25,7 @@ class RoomTypeController extends Controller
                     ->select("*","RoomType.id as roomTypeId")
                     ->get();
         return view('admin.roomtype.index',compact('roomtype'));
+        // return view('admin.dormitory.show',compact('roomtype','dormitory'));
     }
 
     /**
@@ -51,13 +52,13 @@ class RoomTypeController extends Controller
 
         $request->validate([
             'TypeName'=>'required',
-            'NemberPeople'=>'required',
+            'NumberPeople'=>'required',
             'Dormitory_ID'=>'required',
 
         ]);
 
         $Roomtype->TypeName = $request->TypeName;
-        $Roomtype->NemberPeople = $request->NemberPeople;
+        $Roomtype->NumberPeople = $request->NumberPeople;
         $Roomtype->Dormitory_ID = $request->Dormitory_ID;
 
         $Roomtype->save();
@@ -106,7 +107,7 @@ class RoomTypeController extends Controller
     {
         $request->validate([
             'TypeName'=>'required',
-            'NemberPeople'=>'required',
+            'NumberPeople'=>'required',
             'Dormitory_ID'=>'required',
 
         ]);
@@ -114,7 +115,7 @@ class RoomTypeController extends Controller
             ->where('id','=',$id)
             ->update([
             'TypeName' => $request->TypeName,
-            'NemberPeople' => $request->NemberPeople,
+            'NumberPeople' => $request->NumberPeople,
             'Dormitory_ID' => $request->Dormitory_ID,
         ]);
         return redirect('admin/roomtype');

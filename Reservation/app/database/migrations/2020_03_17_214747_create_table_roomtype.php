@@ -16,7 +16,7 @@ class CreateTableRoomtype extends Migration
         Schema::create('RoomType', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('TypeName');
-            $table->integer('NemberPeople');
+            $table->integer('NumberPeople');
             $table->string('Dormitory_ID');
             $table->timestamps();
         });

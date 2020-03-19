@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\DormitoryModel;
+use App\RoomTypeModel;
 use DB;
 
 class DormitoryController extends Controller
@@ -61,8 +62,10 @@ class DormitoryController extends Controller
         $Dormitory = new DormitoryModel;
 
         $request->validate([
-            'Name_Eng' => 'required|unique:Dormitory',
-            'Name_Thai' => 'required|unique:Dormitory',
+            // 'Name_Eng' => 'required|unique:Dormitory',
+            // 'Name_Thai' => 'required|unique:Dormitory',
+            'Name_Eng' => 'required',
+            'Name_Thai' => 'required',
             'Description' => 'required',
 
         ]);
@@ -84,8 +87,16 @@ class DormitoryController extends Controller
      */
     public function show($id)
     {
-        return view('admin/dormitory/show',
-                    ['dormitory' => DormitoryModel::findOrFail($id)]);
+        $dormitoryData =DB::table('Dormitory')
+                    ->where('Dormitory.id','=',$id)
+                    ->get();
+        $dormitory = DB::table('Dormitory')
+                    ->join('RoomType','RoomType.Dormitory_ID','=','Dormitory.id')
+                    // ->select("*","Dormitory.id as DormitoryID")
+                    ->select('*')
+                    ->where('Dormitory.id','=',$id)
+                    ->get();
+        return view('admin/dormitory/show',compact('dormitory','dormitoryData'));
     }
 
     /**
@@ -138,4 +149,10 @@ class DormitoryController extends Controller
         DB::table('Dormitory')->where('id','=',$id)->delete();
         return redirect('admin/dormitory');
     }
+
+    // public function roomtype($id)
+    // {
+    //     // DB::table('Dormitory')->where('id','=',$id)->delete();
+    //     return redirect('admin/dormitory/roomtype',compact('dormitory'));
+    // }
 }
