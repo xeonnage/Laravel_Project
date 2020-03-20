@@ -36,9 +36,17 @@
             <label for="Description">ประเภทห้องพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
                 <select class="form-control" name="Type">
-                    <option value="{{ $rmty->Type }}"><label style="color:red "> สถานะปัจุบัน: </label>{{ $rmty->Type }} </option>
-                    <option value="ห้องปรับอากาศ">ห้องปรับอากาศ</option>
-                    <option value="ห้องพัดลม">ห้องพัดลม</option>
+                    <option value="{{ $rmty->Type }}">
+                        <label style="color:red "> สถานะปัจุบัน: </label>
+                            @if( $rmty->Type  == 1)
+                                ห้องปรับอากาศ
+                            @else
+                                ห้องพัดลม
+                            @endif
+                        {{-- {{ $rmty->Type }}  --}}
+                    </option>
+                    <option value="1">ห้องปรับอากาศ</option>
+                    <option value="2">ห้องพัดลม</option>
                 </select>
             </div>
         </div>

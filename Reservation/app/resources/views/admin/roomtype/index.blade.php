@@ -36,11 +36,12 @@
                     <td>{{ $rmty->Name_Thai}}</td>
                     <td>{{ $rmty->Description}}</td>
                     <td>
-                        @if( $rmty->Type  == "1")
-                             ห้องพัดลม
-                        @else
+                        @if( $rmty->Type  == 1)
                             ห้องปรับอากาศ
+                        @else
+                            ห้องพัดลม
                         @endif
+                        {{-- {{$rmty->Type}} --}}
                     </td>
                     <td><center> {{ $rmty->NumberPeople}} คน/ห้อง </center></td>
 

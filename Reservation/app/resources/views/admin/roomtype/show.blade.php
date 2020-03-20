@@ -22,19 +22,26 @@
                 <thead>
                     <tr>
                         <td>ชื่อหอพักภาษาอังกฤษ</td>
-                        <td>{{ $DormitoryData[0]->Name_Eng}}</td>
+                        <td>{{ $dormitory[0]->Name_Eng}}</td>
                     </tr>
                     <tr>
                         <td>ชื่อหอพักภาษาไทย</td>
-                        <td>{{ $DormitoryData[0]->Name_Thai}}</td>
+                        <td>{{ $dormitory[0]->Name_Thai}}</td>
                     </tr>
                     <tr>
                         <td>ประเภทหอพัก</td>
-                        <td>{{ $DormitoryData[0]->Description}}</td>
+                        <td>{{ $dormitory[0]->Description}}</td>
                     </tr>
                     <tr>
                         <td>ประเภทหอห้องพัก</td>
-                        <td>{{ $RoomTypeData[0]->TypeName}}</td>
+                        <td>
+                            {{-- {{ $roomtype[0]->Type}} --}}
+                            @if ( $roomtype[0]->Type == 1 )
+                                ห้องปรับอากาศ
+                            @else
+                                ห้องพัดลม
+                            @endif
+                        </td>
                     </tr>
                 </thead>
                 <thead>
@@ -50,34 +57,7 @@
                 <?php   $i=1;?>
 
                 <tbody>
-                    @if(sizeof($roomtype) != 0)
-                        @foreach($roomtype as $rmty)
-                            <tr>
-                                <td>{{ $i++ }} </td>
-                                {{-- <td>{{ $dorm->TypeName}}</td>
-                                <td><center>{{ $dorm->NumberPeople}} คน/ห้อง</center></td>
-                                <td>
-                                    <center>
-                                    <form method="post" action="{{ route('dormitory.destroy',$dorm->id) }}">
-                                        @csrf
 
-                                        <a class="btn btn-primary" href="{{ route('roomtype.show',$dorm->id) }}" >แสดงข้อมูล</a>
-                                        <a class="btn btn-warning" href="{{ route('dormitory.edit',$dorm->id) }}" >แก้ไขข้อมูล</a>
-
-                                        @method('DELETE')
-                                        {{-- <button class="btn btn-danger" type="submit">ลบข้อมูล</button> --}}
-
-                                    {{-- </form> --}}
-                                    {{-- </center> --}}
-                                {{-- </td> --}}
-
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="4"><h4 style="text-align:center"><label style="color: #ff5050"> --- ไม่มีข้อมูลประเภทหอพัก ---</label></h4></td>
-                        </tr>
-                    @endif
 
             </table>
 

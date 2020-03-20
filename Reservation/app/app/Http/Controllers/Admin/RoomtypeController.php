@@ -73,19 +73,15 @@ class RoomTypeController extends Controller
      */
     public function show($id)
     {
-        $DormitoryData =DB::table('Dormitory')
-                    ->where('Dormitory.id','=',$id)
-                    ->get();
-        $RoomTypeData = DB::table('RoomType')
-                    ->where('RoomType.id','=',$id)
-                    ->get();
+        $dormitory = DormitoryModel::select('*')->get();
         $roomtype = DB::table('RoomType')
-                    ->join('RoomType','RoomType.id','=','Rooms.Roomtype_ID')
+                    ->join('Room','Room.Roomtype_ID','=','RoomType.Type')
                     ->where('RoomType.id','=',$id)
                     ->get();
 
+
         return view('admin/roomtype/show',
-                compact('roomtype','RoomTypeData','DormitoryData'));
+                compact('roomtype','dormitory'));
 
         // return view('admin/roomtype/show',
         // ['roomtype' => RoomTypeModel::findOrFail($id)]);

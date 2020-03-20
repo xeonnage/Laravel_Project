@@ -20,6 +20,7 @@ class CreateTableRooms extends Migration
             $table->integer('AtNumberPreple');
             $table->string('StatusRoom');
             $table->integer('Roomtype_ID');
+            $table->integer('Dormitory_ID');
             $table->timestamps();
         });
     }

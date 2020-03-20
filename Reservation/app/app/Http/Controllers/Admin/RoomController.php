@@ -18,8 +18,12 @@ class RoomController extends Controller
     public function index()
     {
         $room = DB::table('Rooms')
-                ->join('RoomType','RoomType.id','=','Rooms.Roomtype_ID')
-                ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')                ->select('*')
+                ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
+                ->join('Dormitory','Dormitory.id','=','Rooms.Dormitory_ID')
+                // ->orderBy('Dormitory.id')
+                // ->orderBy('RoomType.id')
+                ->groupBy('Rooms.RoomCode_ID')
+                ->select('*')
                 ->get();
         return view('admin.rooms.index',compact('room'));
     }
@@ -31,10 +35,10 @@ class RoomController extends Controller
      */
     public function create()
     {
-        $room = DB::table('Rooms')->get();
-        $roomtype = RoomTypeModel::orderBy('id')->get();
-        $dormitory = DormitoryModel::orderBy('id')->get();
-        return view('admin.room.create',compact('rooms','roomtype','dormitory'));
+        // $room = DB::table('Rooms')->get();
+        // $roomtype = RoomTypeModel::orderBy('id')->get();
+        // $dormitory = DormitoryModel::orderBy('id')->get();
+        // return view('admin.room.create',compact('rooms','roomtype','dormitory'));
 
     }
 
@@ -75,7 +79,22 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        //
+        // $dormitoryData =DB::table('Dormitory')
+        //             ->where('Dormitory.id','=',$id)
+        //             ->get();
+        $RoomData =DB::table('Dormitory')
+                    ->where('Dormitory.id','=',$id)
+                    ->get();
+        $RoomTypeData = DB::table('RoomType')
+                    ->where('RoomType.id','=',$id)
+                    ->get();
+        $roomtype = DB::table('RoomType')
+                    ->join('RoomType','RoomType.id','=','Rooms.Roomtype_ID')
+                    ->where('RoomType.id','=',$id)
+                    ->get();
+
+        return view('admin/roomtype/show',
+                compact('roomtype','RoomTypeData','DormitoryData'));
     }
 
     /**

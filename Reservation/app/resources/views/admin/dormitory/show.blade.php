@@ -49,7 +49,14 @@
                         @foreach($dormitory as $dorm)
                             <tr>
                                 <td>{{ $i++ }} </td>
-                                <td>{{ $dorm->TypeName}}</td>
+                                <td>
+                                    @if( $dorm->Type == 1 )
+                                        ห้องปรับอากาศ
+                                    @else
+                                        ห้องพัดลม
+                                    @endif
+                                    {{-- {{ $dorm->Type}} --}}
+                                </td>
                                 <td><center>{{ $dorm->NumberPeople}} คน/ห้อง</center></td>
                                 <td>
                                     <center>
