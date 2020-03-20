@@ -22,22 +22,27 @@
                 <thead>
                     <tr>
                         <td>ชื่อหอพักภาษาอังกฤษ</td>
-                        <td>{{ $dormitoryData[0]->Name_Eng}}</td>
+                        <td>{{ $DormitoryData[0]->Name_Eng}}</td>
                     </tr>
                     <tr>
                         <td>ชื่อหอพักภาษาไทย</td>
-                        <td>{{ $dormitoryData[0]->Name_Thai}}</td>
+                        <td>{{ $DormitoryData[0]->Name_Thai}}</td>
                     </tr>
                     <tr>
                         <td>ประเภทหอพัก</td>
-                        <td>{{ $dormitoryData[0]->Description}}</td>
+                        <td>{{ $DormitoryData[0]->Description}}</td>
+                    </tr>
+                    <tr>
+                        <td>ประเภทหอห้องพัก</td>
+                        <td>{{ $RoomTypeData[0]->TypeName}}</td>
                     </tr>
                 </thead>
                 <thead>
                     <th><center>#ลำดับ</center></th>
-                    <th><center>ประเภทห้องพัก</center></th>
+                    <th><center>เลขห้อง</center></th>
+                    <th><center>ชั้น</center></th>
                     <th><center>จำนวนคน</center></th>
-
+                    <th><center>สถานะ</center></th>
                     <th><center>การดำเนินการ</center></th>
 
                     {{-- <th>Operation </th> --}}
@@ -45,11 +50,11 @@
                 <?php   $i=1;?>
 
                 <tbody>
-                    @if(sizeof($dormitory) != 0)
-                        @foreach($dormitory as $dorm)
+                    @if(sizeof($roomtype) != 0)
+                        @foreach($roomtype as $rmty)
                             <tr>
                                 <td>{{ $i++ }} </td>
-                                <td>{{ $dorm->TypeName}}</td>
+                                {{-- <td>{{ $dorm->TypeName}}</td>
                                 <td><center>{{ $dorm->NumberPeople}} คน/ห้อง</center></td>
                                 <td>
                                     <center>
@@ -62,9 +67,9 @@
                                         @method('DELETE')
                                         {{-- <button class="btn btn-danger" type="submit">ลบข้อมูล</button> --}}
 
-                                    </form>
-                                    </center>
-                                </td>
+                                    {{-- </form> --}}
+                                    {{-- </center> --}}
+                                {{-- </td> --}}
 
                             </tr>
                         @endforeach

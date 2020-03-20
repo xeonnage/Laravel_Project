@@ -16,7 +16,7 @@ Route::Resource('admin/dormitory','Admin\DormitoryController');
 Route::Resource('admin/roomtype','Admin\RoomTypeController');
 Route::Resource('admin/rooms','Admin\RoomController');
 
-Route::Resource('admin/dormitory/show','Admin\RoomsController');
+Route::Resource('admin/dormitory/show','Admin\RoomController');
 
 
 Route::get('/', function () {

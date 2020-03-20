@@ -35,8 +35,8 @@
         <div class="form-group">
             <label for="Description">ประเภทห้องพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
-                <select class="form-control" name="TypeName">
-                    <option value="{{ $rmty->TypeName }}"><label style="color:red "> สถานะปัจุบัน: </label>{{ $rmty->TypeName }} </option>
+                <select class="form-control" name="Type">
+                    <option value="{{ $rmty->Type }}"><label style="color:red "> สถานะปัจุบัน: </label>{{ $rmty->Type }} </option>
                     <option value="ห้องปรับอากาศ">ห้องปรับอากาศ</option>
                     <option value="ห้องพัดลม">ห้องพัดลม</option>
                 </select>

@@ -21,7 +21,7 @@ class RoomTypeController extends Controller
         $roomtype = DB::table('RoomType')
                     ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
                     ->orderBy('Dormitory.id')
-                    ->orderBy('RoomType.TypeName')
+                    ->orderBy('RoomType.Type')
                     ->select("*","RoomType.id as roomTypeId")
                     ->get();
         return view('admin.roomtype.index',compact('roomtype'));
@@ -51,13 +51,13 @@ class RoomTypeController extends Controller
         $Roomtype = new RoomTypeModel;
 
         $request->validate([
-            'TypeName'=>'required',
+            'Type'=>'required',
             'NumberPeople'=>'required',
             'Dormitory_ID'=>'required',
 
         ]);
 
-        $Roomtype->TypeName = $request->TypeName;
+        $Roomtype->Type = $request->Type;
         $Roomtype->NumberPeople = $request->NumberPeople;
         $Roomtype->Dormitory_ID = $request->Dormitory_ID;
 
@@ -73,8 +73,22 @@ class RoomTypeController extends Controller
      */
     public function show($id)
     {
+        $DormitoryData =DB::table('Dormitory')
+                    ->where('Dormitory.id','=',$id)
+                    ->get();
+        $RoomTypeData = DB::table('RoomType')
+                    ->where('RoomType.id','=',$id)
+                    ->get();
+        $roomtype = DB::table('RoomType')
+                    ->join('RoomType','RoomType.id','=','Rooms.Roomtype_ID')
+                    ->where('RoomType.id','=',$id)
+                    ->get();
+
         return view('admin/roomtype/show',
-        ['roomtype' => RoomTypeModel::findOrFail($id)]);
+                compact('roomtype','RoomTypeData','DormitoryData'));
+
+        // return view('admin/roomtype/show',
+        // ['roomtype' => RoomTypeModel::findOrFail($id)]);
     }
 
     /**
@@ -106,7 +120,7 @@ class RoomTypeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'TypeName'=>'required',
+            'Type'=>'required',
             'NumberPeople'=>'required',
             'Dormitory_ID'=>'required',
 
@@ -114,7 +128,7 @@ class RoomTypeController extends Controller
         DB::table('RoomType')
             ->where('id','=',$id)
             ->update([
-            'TypeName' => $request->TypeName,
+            'Type' => $request->Type,
             'NumberPeople' => $request->NumberPeople,
             'Dormitory_ID' => $request->Dormitory_ID,
         ]);

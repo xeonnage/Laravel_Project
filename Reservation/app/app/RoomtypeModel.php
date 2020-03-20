@@ -8,7 +8,7 @@ class RoomTypeModel extends Model
 {
     protected $table="RoomType";
     protected $fillable = [
-        'TypeName',
+        'Type',
         'NumberPeople',
         'Dormitory_ID',
 

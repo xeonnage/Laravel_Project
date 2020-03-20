@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 @section('body')
 <div class="container">
@@ -32,7 +31,32 @@
                 <tbody>
                 <tr>
                     <td>{{ $i++ }} </td>
+                    {{-- <td>{{ $rmty->id}}</td> --}}
+                    {{-- <td>{{ $rmty->Dormitory_ID}}</td> --}}
+                    <td>{{ $rmty->Name_Thai}}</td>
+                    <td>{{ $rmty->Description}}</td>
+                    <td>
+                        @if( $rmty->Type  == "1")
+                             ห้องพัดลม
+                        @else
+                            ห้องปรับอากาศ
+                        @endif
+                    </td>
+                    <td><center> {{ $rmty->NumberPeople}} คน/ห้อง </center></td>
 
+
+                    <td>
+                        <center>
+                        <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
+                            @csrf
+
+                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
+                            @method('DELETE')
+                            <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
+
+                        </form>
+                        </center>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

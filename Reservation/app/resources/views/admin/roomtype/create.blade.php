@@ -12,7 +12,7 @@
 @endif
 
 <div class="table-responsive">
-    <p><h2>เพื่มข้อมูล ห้องพัก</h2></p>
+    <p><h2>เพื่มข้อมูล ประเภทห้องพัก</h2></p>
     <form action="{{ route('roomtype.store') }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         {{-- <div class="form-group">
@@ -37,10 +37,10 @@
         <div class="form-group">
             <label for="Description">ประเภทห้องพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
-                <select class="form-control" name="TypeName">
+                <select class="form-control" name="Type">
                     <option value="">โปรดเลือกประเภทห้องพัก</option>
-                    <option value="ห้องปรับอากาศ">ห้องปรับอากาศ</option>
-                    <option value="ห้องพัดลม">ห้องพัดลม</option>
+                    <option value="1">ห้องปรับอากาศ</option>
+                    <option value="2">ห้องพัดลม</option>
                 </select>
             </div>
         </div>
