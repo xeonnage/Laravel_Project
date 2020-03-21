@@ -55,9 +55,33 @@
                     {{-- <th>Operation </th> --}}
                 </thead>
                 <?php   $i=1;?>
-
+                @foreach($roomtype as $rmty)
                 <tbody>
+                <tr>
+                    <td>{{ $i++ }} </td>
+                    {{-- <td>{{ $rmty->id}}</td> --}}
+                    {{-- <td>{{ $rmty->Dormitory_ID}}</td> --}}
+                    <td>{{ $rmty->RoomCode_ID}}</td>
+                    <td>{{ $rmty->Floor}}</td>
+                    <td><center> {{$rmty->AtNumberPreple}} คน/ห้อง </center></td>
+                    <td> {{ $rmty->StatusRoom}} </td>
 
+
+                    {{-- <td>
+                        <center>
+                        <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
+                            @csrf
+
+                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
+                            @method('DELETE')
+                            <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
+
+                        </form>
+                        </center>
+                    </td> --}}
+                </tr>
+                @endforeach
+                </tbody>
 
             </table>
 

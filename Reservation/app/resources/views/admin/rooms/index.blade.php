@@ -30,6 +30,7 @@
                 </thead>
                 <?php   $i=1;?>
                 @foreach ($room as $rm)
+            <tbody>
                     <td>{{ $i++ }}</td>
                     <td>{{ $rm->RoomCode_ID }}</td>
                     <td>{{ $rm->Floor }}</td>

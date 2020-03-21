@@ -17,13 +17,14 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $room = DB::table('Rooms')
-                ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
-                ->join('Dormitory','Dormitory.id','=','Rooms.Dormitory_ID')
+        $room = DB::table('Dormitory')
+            ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
+            ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
                 // ->orderBy('Dormitory.id')
                 // ->orderBy('RoomType.id')
-                ->groupBy('Rooms.RoomCode_ID')
+                // ->groupBy('Rooms.RoomCode_ID')
                 ->select('*')
+                ->whereColumn('RoomType.Dormitory_ID','=','Rooms.Dormitory_ID')
                 ->get();
         return view('admin.rooms.index',compact('room'));
     }

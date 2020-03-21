@@ -63,7 +63,7 @@
                                     <form method="post" action="{{ route('dormitory.destroy',$dorm->id) }}">
                                         @csrf
 
-                                        <a class="btn btn-primary" href="{{ route('roomtype.show',$dorm->id) }}" >แสดงข้อมูล</a>
+                                        <a class="btn btn-primary" href="{{ route('roomtype.show',$dorm->Dormitory_ID.":".$dorm->Type ) }}" >แสดงข้อมูล</a>
                                         <a class="btn btn-warning" href="{{ route('dormitory.edit',$dorm->id) }}" >แก้ไขข้อมูล</a>
 
                                         @method('DELETE')
@@ -80,7 +80,7 @@
                             <td colspan="4"><h4 style="text-align:center"><label style="color: #ff5050"> --- ไม่มีข้อมูลประเภทหอพัก ---</label></h4></td>
                         </tr>
                     @endif
-
+                </tbody>
             </table>
 
         </div>
