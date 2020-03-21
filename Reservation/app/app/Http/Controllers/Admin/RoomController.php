@@ -34,12 +34,18 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        // $room = DB::table('Rooms')->get();
+        $arrayData = explode(":",$id) ;
+        $dormitoryId =  $arrayData[0] ;
+        $type =  $arrayData[1] ;
+
+        $room = DB::table('Rooms')->get();
         // $roomtype = RoomTypeModel::orderBy('id')->get();
-        // $dormitory = DormitoryModel::orderBy('id')->get();
-        // return view('admin.room.create',compact('rooms','roomtype','dormitory'));
+        $dormitory = DormitoryModel::orderBy('id')
+                    ->where('Dormitory.id','=',$dormitoryId)
+                    ->get();
+        return view('admin.rooms.create',compact('room','type','dormitory'));
 
     }
 
@@ -127,8 +133,9 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($RoomCode_ID)
     {
-        //
+        DB::table('Rooms')->where('RoomCode_ID','=',$RoomCode_ID)->delete();
+        return redirect('admin/rooms');
     }
 }

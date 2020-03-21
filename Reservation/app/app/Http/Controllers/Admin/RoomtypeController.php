@@ -76,6 +76,8 @@ class RoomTypeController extends Controller
         $arrayData = explode(":",$id) ;
         $dormitoryId =  $arrayData[0] ;
         $type =  $arrayData[1] ;
+        $roomtypeData = RoomTypeModel::select('*')->get();
+
         $dormitory = DormitoryModel::select('*')->get(); // ส่งไปcompact
         $roomtype = DB::table('Dormitory') // ส่งไปcompact
         ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
@@ -87,7 +89,7 @@ class RoomTypeController extends Controller
         ->get();
 
         return view('admin/roomtype/show',
-                compact('roomtype','dormitory'));
+                compact('roomtype','dormitory','type'));
 
         // return view('admin/roomtype/show',
         // ['roomtype' => RoomTypeModel::findOrFail($id)]);

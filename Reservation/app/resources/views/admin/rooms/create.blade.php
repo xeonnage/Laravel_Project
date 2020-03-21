@@ -12,6 +12,8 @@
 @endif
 
 <div class="table-responsive">
+    {{ $type }}
+    {{ $dormitory[0]->Name_Thai }}
     <p><h2>เพื่มข้อมูล ห้องพัก</h2></p>
     <form action="{{ route('roomtype.store') }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}

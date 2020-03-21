@@ -11,7 +11,8 @@
                 <a  class="btn btn-success mr-2 "
                     style="position:absolute ; right:0 ; top:12px; text-align:right"
                     {{-- href="roomtype/create" >เพิ่มประเภทหอ --}}
-                    href="/admin/roomtype/create" >เพิ่มประเภทหอพัก
+
+                    href="{{ route('rooms.create',$dormitory[0]->id.":".$type) }}" >เพิ่มหอพัก
                 </a>
             </div>
                 @csrf
@@ -35,12 +36,11 @@
                     <tr>
                         <td>ประเภทหอห้องพัก</td>
                         <td>
-                            {{-- {{ $roomtype[0]->Type}} --}}
-                            {{-- @if ( $roomtype[0]->Type == 1 ) --}}
+                            @if ( $type == 1 )
                                 ห้องปรับอากาศ
-                            {{-- @else --}}
+                            @else
                                 ห้องพัดลม
-                            {{-- @endif --}}
+                            @endif
                         </td>
                     </tr>
                 </thead>
@@ -68,18 +68,18 @@
                         <td> {{ $rmty->StatusRoom}} </td>
 
 
-                        {{-- <td>
+                        <td>
                             <center>
-                            <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
+                            <form method="post" action="{{ route('roomtype.destroy',$rmty->RoomCode_ID) }}">
                                 @csrf
 
-                                <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
+                                <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->RoomCode_ID) }}" >แก้ไขข้อมูล</a>
                                 @method('DELETE')
                                 <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
 
                             </form>
                             </center>
-                        </td> --}}
+                        </td>
                     </tr>
                     </tbody>
                 @endforeach
@@ -89,7 +89,10 @@
                 </tr>
                 @endif
             </table>
+
         </div>
+
+
     </div>
 </div>
 @endsection

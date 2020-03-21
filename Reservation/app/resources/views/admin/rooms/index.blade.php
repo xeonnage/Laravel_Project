@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
         <div class="card">
-            <div class="card-header">ห้องพัก ดดด
+            <div class="card-header">ห้องพัก
                 {{-- <a href="#"> โอนเงิน </a> --}}
                 <a  class="btn btn-success mr-2 "
                     style="position:absolute ; right:0 ; top:5px"
@@ -45,6 +45,18 @@
                         {{-- {{ $rm->Type }} --}}
                     </td>
                     <td>{{ $rm->Name_Thai }}</td>
+                    <td>
+                        <center>
+                        <form method="post" action="{{ route('rooms.destroy',$rm->RoomCode_ID) }}">
+                            @csrf
+
+                            <a class="btn btn-warning width:40px" href="{{ route('rooms.edit',$rm->RoomCode_ID) }}" >แก้ไขข้อมูล</a>
+                            @method('DELETE')
+                            <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
+
+                        </form>
+                        </center>
+                    </td>
 
                 @endforeach
                 </tbody>
