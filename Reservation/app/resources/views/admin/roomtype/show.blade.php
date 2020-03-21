@@ -36,11 +36,11 @@
                         <td>ประเภทหอห้องพัก</td>
                         <td>
                             {{-- {{ $roomtype[0]->Type}} --}}
-                            @if ( $roomtype[0]->Type == 1 )
+                            {{-- @if ( $roomtype[0]->Type == 1 ) --}}
                                 ห้องปรับอากาศ
-                            @else
+                            {{-- @else --}}
                                 ห้องพัดลม
-                            @endif
+                            {{-- @endif --}}
                         </td>
                     </tr>
                 </thead>
@@ -55,39 +55,41 @@
                     {{-- <th>Operation </th> --}}
                 </thead>
                 <?php   $i=1;?>
+                @if( sizeof($roomtype) != 0)
                 @foreach($roomtype as $rmty)
-                <tbody>
-                <tr>
-                    <td>{{ $i++ }} </td>
-                    {{-- <td>{{ $rmty->id}}</td> --}}
-                    {{-- <td>{{ $rmty->Dormitory_ID}}</td> --}}
-                    <td>{{ $rmty->RoomCode_ID}}</td>
-                    <td>{{ $rmty->Floor}}</td>
-                    <td><center> {{$rmty->AtNumberPreple}} คน/ห้อง </center></td>
-                    <td> {{ $rmty->StatusRoom}} </td>
+                    <tbody>
+                    <tr>
+                        <td>{{ $i++ }} </td>
+                        {{-- <td>{{ $rmty->id}}</td> --}}
+                        {{-- <td>{{ $rmty->Dormitory_ID}}</td> --}}
+                        <td>{{ $rmty->RoomCode_ID}}</td>
+                        <td>{{ $rmty->Floor}}</td>
+                        <td><center> {{$rmty->AtNumberPreple}} คน/ห้อง </center></td>
+                        <td> {{ $rmty->StatusRoom}} </td>
 
 
-                    {{-- <td>
-                        <center>
-                        <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
-                            @csrf
+                        {{-- <td>
+                            <center>
+                            <form method="post" action="{{ route('roomtype.destroy',$rmty->roomTypeId) }}">
+                                @csrf
 
-                            <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
-                            @method('DELETE')
-                            <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
+                                <a class="btn btn-warning width:40px" href="{{ route('roomtype.edit',$rmty->roomTypeId) }}" >แก้ไขข้อมูล</a>
+                                @method('DELETE')
+                                <button class="btn btn-danger width:40%" type="submit">ลบข้อมูล </button>
 
-                        </form>
-                        </center>
-                    </td> --}}
-                </tr>
+                            </form>
+                            </center>
+                        </td> --}}
+                    </tr>
+                    </tbody>
                 @endforeach
-                </tbody>
-
+                @else
+                <tr>
+                    <td colspan="6"><h4 style="text-align:center"><label style="color: #ff5050"> --- ไม่มีข้อมูลประเภทหอพัก ---</label></h4></td>
+                </tr>
+                @endif
             </table>
-
         </div>
-
-
     </div>
 </div>
 @endsection
