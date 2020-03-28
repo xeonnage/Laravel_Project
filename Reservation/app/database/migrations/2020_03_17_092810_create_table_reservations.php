@@ -17,9 +17,9 @@ class CreateTableReservations extends Migration
             $table->bigIncrements('id');
             $table->string('UserDetails_ID');
             $table->string('RoomCode_ID');
-            $table->dateTime('BookingDate');
-            $table->dateTime('EnteredDate');
-            $table->string('Deposit');
+            $table->string('term');
+            $table->dateTime('BookingDate');//วันที่จอง
+            $table->dateTime('DueDate'); //วันที่กำหนด(ครบสัญญา)
             $table->string('Status');
             $table->string('Detail');
             $table->timestamps();

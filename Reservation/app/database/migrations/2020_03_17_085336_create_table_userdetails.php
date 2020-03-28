@@ -15,27 +15,27 @@ class CreateTableUserdetails extends Migration
     {
         Schema::create('UserDetails', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Code_ID');
-            $table->string('Status');
-            $table->string('Collegian_ID');
-            $table->string('Firstname_Thai');
-            $table->string('Lastname_Thai');
-            $table->string('Firstname_Eng');
-            $table->string('Lastname_Eng');
-            $table->string('Gender');
+            $table->string('Code_ID'); //รหัสประชาชน
+            $table->string('Status'); //สถานะ นิสิต/บุคคลทั่วไป
+            $table->string('Collegian_ID'); //รหัสนิสิต
+            $table->string('Firstname_Thai'); //ชืื่อ ไทย
+            $table->string('Lastname_Thai'); //นามสกุล ไทย
+            $table->string('Firstname_Eng'); //ชื่อ อิ้ง
+            $table->string('Lastname_Eng'); //นามสกุล อิ้ง
+            $table->string('Gender'); //เพศ
             $table->string('ethnicity');//เชื้อชาติ
             $table->string('nationality');//สัญชาติ
             $table->string('religion');//ศาสนา
-            $table->date('Birth_Date');
-            $table->string('Phone');
-            $table->string('Email');
-            $table->string('Faculty');
-            $table->string('Major');
-            $table->string('Level');
-            $table->string('Address');
-            $table->string('Amphures');
-            $table->string('Districts');
-            $table->string('Provinces');
+            $table->date('Birth_Date'); //วันเกิด
+            $table->string('Phone'); //เบอร์โทร
+            $table->string('Email'); //อีเมล
+            $table->string('Faculty');//คณะ
+            $table->string('Major'); //สาขา
+            $table->string('Level'); //ชั้นปี
+            $table->string('Address'); //ที่อยุ่
+            $table->string('Amphures'); //ตำบล
+            $table->string('Districts'); //อำเภอ
+            $table->string('Provinces'); //จังหวัด
             $table->timestamps();
         });
     }
