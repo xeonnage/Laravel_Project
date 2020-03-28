@@ -17,6 +17,9 @@ class CreateTableRoomtype extends Migration
             $table->bigIncrements('id');
             $table->integer('Type');
             $table->integer('NumberPeople');
+            $table->double('RoomFee');
+            $table->double('ElectricityBill');
+            $table->double('WaterBill');
             $table->string('Dormitory_ID');
             $table->timestamps();
         });
