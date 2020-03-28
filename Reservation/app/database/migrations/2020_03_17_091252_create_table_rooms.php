@@ -14,7 +14,7 @@ class CreateTableRooms extends Migration
     public function up()
     {
         Schema::create('Rooms', function (Blueprint $table) {
-            // $table->bigIncrements('id');
+            $table->bigIncrements('id');
             $table->string('RoomCode_ID');
             $table->string('Floor');
             $table->integer('AtNumberPreple');

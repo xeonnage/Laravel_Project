@@ -46,7 +46,6 @@ class RoomController extends Controller
                     ->where('Dormitory.id','=',$dormitoryId)
                     ->get();
         return view('admin.rooms.create',compact('room','type','dormitory'));
-
     }
 
     /**
@@ -57,24 +56,25 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $room = new RoomTypeModel;
+        $room = new RoomModel;
 
         $request->validate([
-            'RoomCode_ID'=>'request',
-            'Floor'=>'request',
-            'StatusRoom'=>'request',
-            'Roomtype_ID'=>'request',
-
+            'RoomCode_ID' => 'required|unique:RoomCode_ID',
+            'RoomCode_ID'=>'required',
+            'Floor'=>'required',
+            'Dormitory_ID'=>'required',
+            'Roomtype_ID'=>'required',
         ]);
 
         $room->RoomCode_ID = $request->RoomCode_ID;
         $room->Floor = $request->Floor;
-        $room->StatusRoom = $request->StatusRoom;
+        $room->Dormitory_ID = $request->Dormitory_ID;
         $room->Roomtype_ID = $request->Roomtype_ID;
+        // $room->StatusRoom = $request->StatusRoom;
+        // $room->Roomtype_ID = $request->Roomtype_ID;
 
         $room->save();
         return redirect('admin/rooms');
-
 
     }
 

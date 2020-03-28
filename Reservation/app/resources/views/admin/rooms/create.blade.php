@@ -14,8 +14,8 @@
 <div class="table-responsive">
     {{ $type }}
     {{ $dormitory[0]->Name_Thai }}
-    <p><h2>เพื่มข้อมูล ห้องพัก</h2></p>
-    <form action="{{ route('roomtype.store') }}" method="post" enctype="multipart/form-data">
+    <p><h2>เพื่มข้อมูล ห้องพัก </h2></p>
+    <form action="{{ route('rooms.store') }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         {{-- <div class="form-group">
             <label for="TypeName">ประเภทห้องพัก <font style="color:red;"> * </font></label>
@@ -23,27 +23,27 @@
         </div> --}}
 
         <div class="form-group">
-            <label for="Description">ชื่อหอพัก <label style="color:red;"> * </label></label>
+            <label for="Dormitory_ID">ชื่อหอพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
-                <select class="form-control" name="Dormitory_ID">
-                    <option value="" ><label style="color:brown" >กรุณาเลือกหอพัก</label></option>
-                    @foreach($dormitory as $dormitory)
-                    <option value = "{{$dormitory->id}}">
-                        {{$dormitory->Name_Thai}}
-                    </option>
-                    @endforeach
-                </select>
+                <input type="hidden" value= "{{$dormitory[0]->id}}" class="form-control" name="Dormitory_ID" id="Dormitory_ID"/>
+                <input type="text" class="form-control" name="Dormitory_NAME" id="Dormitory_NAME"
+                value="{{ $dormitory[0]->Name_Thai }}" readonly>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Description">ประเภทห้องพัก <label style="color:red;"> * </label></label>
+            <label for="Roomtype_ID">ประเภทห้องพัก <label style="color:red;"> * </label></label>
             <div {{-- class = "col-sm-4" --}}>
-                <select class="form-control" name="TypeName">
-                    <option value="">โปรดเลือกประเภทห้องพัก</option>
-                    <option value="1">ห้องปรับอากาศ</option>
-                    <option value="2">ห้องพัดลม</option>
-                </select>
+                <input type="hidden" value= "{{$type}}" class="form-control" name="Roomtype_ID" id="Roomtype_ID" />
+                <input type="text" class="form-control" name="Roomtype_NAME" id="Roomtype_NAME"
+
+                @if( $type == 1  )
+                    value="ห้องปรับอากาศ "
+                @else
+                    value="ห้องพัดลม  "
+                @endif
+                readonly
+                >
             </div>
         </div>
 

@@ -15,10 +15,15 @@
 Route::Resource('admin/dormitory','Admin\DormitoryController');
 Route::Resource('admin/roomtype','Admin\RoomTypeController');
 Route::Resource('admin/rooms','Admin\RoomController',['except' => 'create'] );
-
-Route::Resource('admin/dormitory/show','Admin\RoomController');
-
 Route::get('admin/rooms/create/{id}', 'Admin\RoomController@create')->name('rooms.create');;
+
+Route::Resource('admin/problemtype','Admin\ProblemTypeController');
+Route::Resource('admin/reportproblem','Admin\RoomController');
+
+
+
+
+//Route::Resource('admin/dormitory/show','Admin\RoomController');
 
 Route::get('/', function () {
     return view('welcome');

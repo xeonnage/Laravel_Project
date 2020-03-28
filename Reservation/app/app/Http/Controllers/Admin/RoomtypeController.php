@@ -78,13 +78,16 @@ class RoomTypeController extends Controller
         $type =  $arrayData[1] ;
         $roomtypeData = RoomTypeModel::select('*')->get();
 
-        $dormitory = DormitoryModel::select('*')->get(); // ส่งไปcompact
+        $dormitory = DormitoryModel::select('*')
+        ->where('Dormitory.id','=',$dormitoryId)
+        ->get(); // ส่งไปcompact
         $roomtype = DB::table('Dormitory') // ส่งไปcompact
         ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
         ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
         ->select('*')
         ->where('RoomType.Dormitory_ID','=',$dormitoryId)
         ->where('RoomType.Type','=',$type)
+
         ->whereColumn('RoomType.Dormitory_ID','=','Rooms.Dormitory_ID')
         ->get();
 
