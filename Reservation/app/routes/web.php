@@ -25,7 +25,7 @@ Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
 Route::post('admin/Problemtype','Admin\ProblemTypeController@store');
 Route::get('admin/Problemtype/edit/{id}','Admin\ProblemTypeController@edit');
 Route::post('admin/Problemtype/update/{id}','Admin\ProblemTypeController@update');
-// Route::get('admin/deleteProblemtype/{id}','Admin\ProblemTypeController@delete');
+Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
 
 
 

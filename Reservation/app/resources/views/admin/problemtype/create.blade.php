@@ -26,31 +26,37 @@
                 {{-- <button class="btn btn-secondary" type="reset">ยกเลิก</button> --}}
             </form>
         </div>
-        <div class="table-responsive my-3">
-            <table class="table" border="0">
-                <thead class="thead-dark">
-                    <th><center>ลำดับ</center></th>
-                    <th><center>ประเภทหัวข้อปัญหา</center></th>
-                    <th><center>การดำเนินการ</center></th>
-                </thead>
+        @if($problemtype->count()>0)
+            <div class="table-responsive my-3">
+                <table class="table" border="0">
+                    <thead class="thead-dark">
+                        <th><center>ลำดับ</center></th>
+                        <th><center>ประเภทหัวข้อปัญหา</center></th>
+                        <th><center>การดำเนินการ</center></th>
+                    </thead>
+                    <?php   $i=1;?>
+                    @foreach($problemtype as $pbty)
+                    <tbody>
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $pbty->ProblemName}}</td>
+                        <td>
+                            <center>
+                            <a href="/admin/Problemtype/edit/{{$pbty->id}}" class="btn btn-warning">แก้ไขข้อมูล</a>
+                            <a href="/admin/Problemtype/delete/{{$pbty->id}}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
+                            </center>
+                        </td>
 
-                @foreach($problemtype as $pbty)
-                <tbody>
-                <tr>
-                    <td>{{ $pbty->id}}</td>
-                    <td>{{ $pbty->ProblemName}}</td>
-                    <td>
-                        <center>
-                        <a href="/admin/Problemtype/edit/{{$pbty->id}}" class="btn btn-warning">แก้ไขข้อมูล</a>
-                        <a href="/admin/deleteProblemtype/{{$pbty->id}}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
-                        </center>
-                    </td>
-
-                </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @else
+            <div class="alert alert-danger col-sm-10 my-2">
+                <p style="text-align:center">ไม่มีข้อมูล หัวข้อปัญหา</p>
+            </div>
+        @endif
     </div>
 </div>
 @endsection

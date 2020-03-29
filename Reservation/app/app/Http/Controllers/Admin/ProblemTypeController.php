@@ -110,7 +110,13 @@ class ProblemTypeController extends Controller
      */
     public function destroy($id)
     {
-        // DB::table('ProblemType')->where('id','=',$id)->delete();
-        // return redirect('admin/problemtype');
+        // ProblemTypeModel::destroy($id);
+        DB::table('ProblemType')->where('id','=',$id)->delete();
+        return redirect('/admin/problemtype');
+    }
+    public function delete($id)
+    {
+        ProblemTypeModel::destroy($id);
+        return redirect('/admin/Problemtype');
     }
 }
