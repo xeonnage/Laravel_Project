@@ -36,6 +36,7 @@ class CreateTableUserdetails extends Migration
             $table->string('Amphures'); //ตำบล
             $table->string('Districts'); //อำเภอ
             $table->string('Provinces'); //จังหวัด
+            $table->string('country'); //ประเทศ
             $table->timestamps();
         });
     }

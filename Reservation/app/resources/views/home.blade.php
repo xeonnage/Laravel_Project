@@ -18,7 +18,7 @@
                     <p><strong>Name : </strong>{!! Auth::user()->name !!}</p>
                     <p><strong>Email : </strong>{!! Auth::user()->email !!}</p>
 
-                    <a href="admin/dormitory" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                    <a href="user/UserDetail/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
                     <a href="admin/dormitory" class="btn btn-primary">Management</a>
                     <a href="" class="btn btn-success">Home</a>
                 </div>

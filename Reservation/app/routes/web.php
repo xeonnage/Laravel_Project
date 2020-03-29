@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::Resource('admin/dormitory','Admin\DormitoryController');
 Route::Resource('admin/roomtype','Admin\RoomTypeController');
 Route::Resource('admin/rooms','Admin\RoomController',['except' => 'create'] );
@@ -26,6 +25,14 @@ Route::post('admin/Problemtype','Admin\ProblemTypeController@store');
 Route::get('admin/Problemtype/edit/{id}','Admin\ProblemTypeController@edit');
 Route::post('admin/Problemtype/update/{id}','Admin\ProblemTypeController@update');
 Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete');
+
+//userDeTail
+Route::get('user/UserDetail/create','Admin\UserDetailController@create');
+Route::get('user/UserDetail','Admin\UserDetailController@index');
+Route::post('user/UserDetail','Admin\UserDetailController@store');
+Route::get('user/UserDetail/edit/{id}','Admin\UserDetailController@edit');
+Route::post('user/UserDetail/update/{id}','Admin\UserDetailController@update');
+Route::get('user/UserDetail/delete/{id}','Admin\UserDetailController@delete');
 
 
 
