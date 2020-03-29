@@ -19,15 +19,12 @@ Route::get('admin/rooms/create/{id}', 'Admin\RoomController@create')->name('room
 Route::Resource('admin/Reservations','Admin\ReservationsController',['except' => 'create'] );
 Route::get('/Reservations/create/{id}', 'Admin\ReservationsController@create')->name('rooms.create');;
 
-
 // Route::Resource('admin/problemtype','Admin\ProblemTypeController');
 Route::get('admin/Problemtype','Admin\ProblemTypeController@create');
 Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
 Route::post('admin/Problemtype','Admin\ProblemTypeController@store');
-
-
-// Route::get('admin/Problemtype/edit/{id}','Admin\ProblemTypeController@edit');
-// Route::post('admin/updateProblemtype/{id}','Admin\ProblemTypeController@update');
+Route::get('admin/Problemtype/edit/{id}','Admin\ProblemTypeController@edit');
+Route::post('admin/Problemtype/update/{id}','Admin\ProblemTypeController@update');
 // Route::get('admin/deleteProblemtype/{id}','Admin\ProblemTypeController@delete');
 
 

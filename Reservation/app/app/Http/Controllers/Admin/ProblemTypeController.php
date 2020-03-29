@@ -72,9 +72,12 @@ class ProblemTypeController extends Controller
      */
     public function edit($id)
     {
-        // $problemtype = DB::table("ProblemType")
-        //                 ->where('id','=',$id)->get();
-        // return view('admin/problemtype/edit',compact('problemtype'));
+        // $problemtype = find($id);
+        $problemtype = DB::table("ProblemType")
+                        ->where('id','=',$id)->get();
+        return view('admin.problemtype.edit',compact('problemtype'));
+        // return view('admin.problemtype.edit',['problemtype'=> $problemtype]);
+
     }
 
     /**
@@ -86,17 +89,17 @@ class ProblemTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'ProblemName' => 'required',
-        // ]);
+        $request->validate([
+            'ProblemName' => 'required|unique:ProblemType',
+        ]);
 
-        // DB::table('ProblemType')
-        //     ->where('id','=',$id)
-        //     ->update([
-        //     'ProblemName' => $request->ProblemName,
-        // ]);
+        DB::table('ProblemType')
+            ->where('id','=',$id)
+            ->update([
+            'ProblemName' => $request->ProblemName,
+        ]);
 
-        // return redirect('admin/problemtype');
+        return redirect('/admin/Problemtype');
     }
 
     /**

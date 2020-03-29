@@ -14,7 +14,6 @@
     <div class="row justify-content-center">
         <div class="table-responsive">
             <p><h2>เพื่มหัวข้อปัญหา </h2></p>
-            {{-- <form action="{{ route('problemtype.store') }}" method="post" enctype="multipart/form-data"> --}}
             <form action="/admin/Problemtype" method="post" >
                 {{csrf_field()}}
                 <div class="form-inline">
@@ -42,7 +41,7 @@
                     <td>{{ $pbty->ProblemName}}</td>
                     <td>
                         <center>
-                        <a href="/admin/editProblemtype/{{$pbty->id}}" class="btn btn-warning">แก้ไขข้อมูล</a>
+                        <a href="/admin/Problemtype/edit/{{$pbty->id}}" class="btn btn-warning">แก้ไขข้อมูล</a>
                         <a href="/admin/deleteProblemtype/{{$pbty->id}}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
                         </center>
                     </td>
