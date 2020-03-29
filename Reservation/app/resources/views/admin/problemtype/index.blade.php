@@ -1,27 +1,38 @@
 
 @extends('layouts.admin')
 @section('body')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">หอพักนิสิต
-                {{-- <a href="#"> โอนเงิน </a> --}}
-                <a  class="btn btn-success mr-2 "
-                    style="position:absolute ; right:0 ; top:5px"
-                    href="problemtype/create" >เพิ่มหัวข้อปัญหา
-                </a>
-            </div>
-                @csrf
+        <div class="table-responsive">
+            <h2>เพื่มข้อหัว ประเภทปัญหา</h2>
+            <form action="{{ route('/admin/Problemtype') }}" method="post">
+                {{csrf_field()}}
+                <div class="form-inline">
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
+                        <label for="name" class="col-sm-1" >Name</label>
+                        <input type="text" class="form-control col-sm-8" name="ProblemName" id="ProblemName" placeholder="หัวข้อปัญหา">
+                        <button type="submit" name="submit" class="btn btn-success col-sm-2">ยืนยัน</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-        <body {{--class="text-center"--}} style="">
-
+        <div class="table-responsive my-3">
             <table class="table" border="0">
-                <thead>
+                <thead class="thead-dark">
                     <th><center>ลำดับ</center></th>
                     <th><center>ประเภทหัวข้อปัญหา</center></th>
                     <th><center>การดำเนินการ</center></th>
-                    {{-- <th>Operation </th> --}}
                 </thead>
 
                 @foreach($problemtype as $pbty)
@@ -30,25 +41,14 @@
                     <td>{{ $pbty->id}}</td>
                     <td>{{ $pbty->ProblemName}}</td>
                     <td>
-                        <center>
-                        <form method="post" action="{{ route('problemtype.destroy',$pbty->id) }}">
-                            @csrf
-
-                            {{-- <a class="btn btn-primary" href="{{ route('problemtype.show',$pbty->id) }}" >แสดงข้อมูล</a> --}}
-                            <a class="btn btn-warning" href="{{ route('problemtype.edit',$pbty->id) }}" >แก้ไขข้อมูล</a>
-
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">ลบข้อมูล</button>
-
-                        </form>
-                        </center>
+                        <a href="/admin/editProblemtype/{{$pbty->id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/deleteProblemtype/{{$pbty->id}}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">Remove</a>
                     </td>
 
                 </tr>
                 @endforeach
                 </tbody>
             </table>
-        </div>
         </div>
     </div>
 </div>

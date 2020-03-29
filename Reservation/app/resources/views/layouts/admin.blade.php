@@ -31,7 +31,7 @@
         <a href="/admin/rooms" class="list-group-item list-group-item-action bg-light">ห้องพัก</a>
         <a href="/admin/roomtype" class="list-group-item list-group-item-action bg-light">ประเภทห้องพัก</a>
         <a href="/admin/dormitory" class="list-group-item list-group-item-action bg-light">หอพัก</a>
-        <a href="/admin/problemtype" class="list-group-item list-group-item-action bg-light">ประเภทปัญหา</a>
+        <a href="/admin/Problemtype" class="list-group-item list-group-item-action bg-light">ประเภทปัญหา</a>
         <a href="/admin/reportproblem" class="list-group-item list-group-item-action bg-light">ปัญหาของผู้ใช้</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">การจองห้องพัก</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">ข้อมูลผู้ใช้</a>

@@ -17,10 +17,10 @@ class ProblemTypeController extends Controller
      */
     public function index()
     {
+        // $problemtype = ProblemTypeModel::all();
         $problemtype = DB::table('ProblemType')
                         ->get();
-        return view('admin.problemtype.index',compact('problemtype'));
-
+        return view('admin.problemtype.create',compact('problemtype'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ProblemTypeController extends Controller
      */
     public function create()
     {
-        return view('admin/problemtype/create');
+        return view('admin.problemtype.create');
     }
 
     /**
@@ -44,13 +44,13 @@ class ProblemTypeController extends Controller
         $problemtype = new ProblemTypeModel;
 
         $request->validate([
-            'ProblemName' => 'required',
+            'ProblemName' => 'required|unique:ProblemType',
         ]);
 
         $problemtype->ProblemName = $request->ProblemName;
 
         $problemtype->save();
-        return redirect('admin/problemtype');
+        return redirect('/admin/Problemtype');
     }
 
     /**
@@ -72,9 +72,9 @@ class ProblemTypeController extends Controller
      */
     public function edit($id)
     {
-        $problemtype = DB::table("ProblemType")
-                        ->where('id','=',$id)->get();
-        return view('admin/problemtype/edit',compact('problemtype'));
+        // $problemtype = DB::table("ProblemType")
+        //                 ->where('id','=',$id)->get();
+        // return view('admin/problemtype/edit',compact('problemtype'));
     }
 
     /**
@@ -86,17 +86,17 @@ class ProblemTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'ProblemName' => 'required',
-        ]);
+        // $request->validate([
+        //     'ProblemName' => 'required',
+        // ]);
 
-        DB::table('ProblemType')
-            ->where('id','=',$id)
-            ->update([
-            'ProblemName' => $request->ProblemName,
-        ]);
+        // DB::table('ProblemType')
+        //     ->where('id','=',$id)
+        //     ->update([
+        //     'ProblemName' => $request->ProblemName,
+        // ]);
 
-        return redirect('admin/problemtype');
+        // return redirect('admin/problemtype');
     }
 
     /**
@@ -107,7 +107,7 @@ class ProblemTypeController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('ProblemType')->where('id','=',$id)->delete();
-        return redirect('admin/problemtype');
+        // DB::table('ProblemType')->where('id','=',$id)->delete();
+        // return redirect('admin/problemtype');
     }
 }
