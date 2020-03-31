@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ProblemTypeModel;
 use DB;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProblemTypeController extends Controller
 {
@@ -50,6 +50,7 @@ class ProblemTypeController extends Controller
         $problemtype->ProblemName = $request->ProblemName;
 
         $problemtype->save();
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อย");
         return redirect('/admin/Problemtype');
     }
 

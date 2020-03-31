@@ -63,7 +63,13 @@
     </div>
     <div id="page-content-wrapper">
       <div class="container-fluid">
+        @if(Session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{Session()->get('success')}}
+            </div>
+        @endif
         @yield('body')
+      </div>
     </div>
   </div>
 </body>
