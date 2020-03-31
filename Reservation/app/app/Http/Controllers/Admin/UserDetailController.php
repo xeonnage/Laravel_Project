@@ -18,7 +18,7 @@ class UserDetailController extends Controller
     {
         $userdetails = DB::table('UserDetails')
                         ->get();
-        return view('user.userdetails.index',compact('userdetails'));
+        return view('admin.userdetails.index',compact('userdetails'));
     }
 
     /**
@@ -97,7 +97,9 @@ class UserDetailController extends Controller
      */
     public function show($id)
     {
-
+        $userdetails = DB::table('UserDetails')
+                        ->get();
+        return view('user.userdetails.index',compact('userdetails'));
     }
 
     /**
