@@ -43,9 +43,9 @@
                         <div class = "col-sm-4">
                             <select class="form-control " name="Status">
                                 <option value="">โปรดเลือกสถานะของท่าน</option>
-                                <option value="1">นิสิตนักศึกษา</option>
-                                <option value="2">อาจารย์</option>
-                                <option value="3">บุคคลภายนอก</option>
+                                <option value="นิสิตนักศึกษา">นิสิตนักศึกษา</option>
+                                <option value="อาจารย์">อาจารย์</option>
+                                <option value="บุคคลภายนอก">บุคคลภายนอก</option>
                             </select>
                         </div>
                         {{-- <input type="text" class="form-control col-sm-4" name="Status" id="Status" placeholder=" "> --}}
@@ -59,8 +59,8 @@
                         <div class = "col-sm-4">
                             <select class="form-control " name="Gender">
                                 <option value="">โปรดเลือกเพศของท่าน</option>
-                                <option value="1">เพศชาย</option>
-                                <option value="2">เพศหญิง</option>
+                                <option value="เพศชาย">เพศชาย</option>
+                                <option value="เพศหญิง">เพศหญิง</option>
                             </select>
                         </div>
                         {{-- <input type="text" class="form-control col-sm-4" name="Gender" id="Gender" placeholder=" "> --}}
@@ -103,7 +103,7 @@
                         <label for="Amphures" class="col-sm-2">ตำบล  <label style="color:red;"> * </label></label>
                         <input type="text" class="form-control col-sm-4" name="Amphures" id="Amphures" placeholder=" ">
 
-                        <label for="Districts" class="col-sm-2">อำเภท / เขต <label style="color:red;"> * </label></label>
+                        <label for="Districts" class="col-sm-2">อำเภอ / เขต <label style="color:red;"> * </label></label>
                         <input type="text" class="form-control col-sm-4" name="Districts" id="Districts" placeholder=" ">
                     </div>
 

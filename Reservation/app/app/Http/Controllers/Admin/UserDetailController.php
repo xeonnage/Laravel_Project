@@ -86,7 +86,7 @@ class UserDetailController extends Controller
         $userdetails->country = $request->country;//ประเทศ
 
         $userdetails->save();
-        return redirect('/user/UserDetail');
+        return redirect('/home');
     }
 
     /**
@@ -98,8 +98,9 @@ class UserDetailController extends Controller
     public function show($id)
     {
         $userdetails = DB::table('UserDetails')
+                        ->where('id','=',$id)
                         ->get();
-        return view('user.userdetails.index',compact('userdetails'));
+        return view('user.userdetails.show',compact('userdetails'));
     }
 
     /**
@@ -178,7 +179,7 @@ class UserDetailController extends Controller
 
         ]);
 
-        return redirect('/user/UserDetail');
+        return redirect('/user/UserDetail/show/{id}');
     }
 
     /**
@@ -194,6 +195,6 @@ class UserDetailController extends Controller
     public function delete($id)
     {
         UserDetailModel::destroy($id);
-        return redirect('/user/UserDetail');
+        // return redirect('/user/UserDetail');
     }
 }
