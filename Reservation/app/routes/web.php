@@ -28,8 +28,9 @@ Route::get('admin/Problemtype/delete/{id}','Admin\ProblemTypeController@delete')
 
 //userDeTail
 Route::get('user/UserDetail/create','Admin\UserDetailController@create');
+Route::get('user/UserDetail/show','Admin\UserDetailController@show');
 Route::get('user/UserDetail','Admin\UserDetailController@index');
-Route::post('user/UserDetail','Admin\UserDetailController@store');
+Route::post('user/UserDetail/create','Admin\UserDetailController@store');
 Route::get('user/UserDetail/edit/{id}','Admin\UserDetailController@edit');
 Route::post('user/UserDetail/update/{id}','Admin\UserDetailController@update');
 Route::get('user/UserDetail/delete/{id}','Admin\UserDetailController@delete');

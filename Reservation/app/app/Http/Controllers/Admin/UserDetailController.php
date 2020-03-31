@@ -18,7 +18,7 @@ class UserDetailController extends Controller
     {
         $userdetails = DB::table('UserDetails')
                         ->get();
-        return view('admin.userdetails.index',compact('userdetails'));
+        return view('user.userdetails.index',compact('userdetails'));
     }
 
     /**
@@ -54,7 +54,6 @@ class UserDetailController extends Controller
             'religion' => 'required',//ศาสนา
             'Birth_Date' => 'required',//วันเกิด
             'Phone' => 'required',//เบอร์โทร
-            'Email' => 'required',//อีเมล
             'Faculty' => 'required',//คณะ
             'Major' => 'required',//สาขา
             'Level' => 'required',//ชั้นปี
@@ -77,7 +76,6 @@ class UserDetailController extends Controller
         $userdetails->religion = $request->religion;//ศาสนา
         $userdetails->Birth_Date = $request->Birth_Date;//วันเกิด
         $userdetails->Phone = $request->Phone;//เบอร์โทร
-        $userdetails->Email = $request->Email;//อีเมล
         $userdetails->Faculty = $request->Faculty;//คณะ
         $userdetails->Major = $request->Major;//สาขา
         $userdetails->Level = $request->Level;//ชั้นปี
@@ -141,7 +139,6 @@ class UserDetailController extends Controller
             'religion' => 'required',//ศาสนา
             'Birth_Date' => 'required',//วันเกิด
             'Phone' => 'required',//เบอร์โทร
-            'Email' => 'required',//อีเมล
             'Faculty' => 'required',//คณะ
             'Major' => 'required',//สาขา
             'Level' => 'required',//ชั้นปี
@@ -168,7 +165,6 @@ class UserDetailController extends Controller
             'religion' => $request->religion,//ศาสนา
             'Birth_Date' => $request->Birth_Date,//วันเกิด
             'Phone' => $request->Phone,//เบอร์โทร
-            'Email' => $request->Email,//อีเมล
             'Faculty' => $request->Faculty,//คณะ
             'Major' => $request->Major,//สาขา
             'Level' => $request->Level,//ชั้นปี

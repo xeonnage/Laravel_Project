@@ -21,7 +21,6 @@ class UserDetailModel extends Model
         'religion',//ศาสนา
         'Birth_Date', //วันเกิด
         'Phone',//เบอร์โทร
-        'Email',//อีเมล
         'Faculty',//คณะ
         'Major',//สาขา
         'Level',//ชั้นปี

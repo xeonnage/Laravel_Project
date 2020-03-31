@@ -28,7 +28,6 @@ class CreateTableUserdetails extends Migration
             $table->string('religion');//ศาสนา
             $table->date('Birth_Date'); //วันเกิด
             $table->string('Phone'); //เบอร์โทร
-            $table->string('Email'); //อีเมล
             $table->string('Faculty');//คณะ
             $table->string('Major'); //สาขา
             $table->string('Level'); //ชั้นปี
