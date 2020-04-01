@@ -92,7 +92,7 @@ class DormitoryController extends Controller
                     ->where('Dormitory.id','=',$id)
                     ->get();
         $dormitory = DB::table('Dormitory')
-                    ->join('RoomType','RoomType.Dormitory_ID','=','Dormitory.id')
+                    ->join('TypeRoom','TypeRoom.Dormitory_ID','=','Dormitory.id')
                     // ->select("*","Dormitory.id as DormitoryID")
                     ->select('*')
                     ->where('Dormitory.id','=',$id)

@@ -18,11 +18,11 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        $roomtype = DB::table('RoomType')
-                    ->join('Dormitory','Dormitory.id','=','RoomType.Dormitory_ID')
+        $roomtype = DB::table('TypeRoom')
+                    ->join('Dormitory','Dormitory.id','=','TypeRoom.Dormitory_ID')
                     ->orderBy('Dormitory.id')
-                    ->orderBy('RoomType.Type')
-                    ->select("*","RoomType.id as roomTypeId")
+                    ->orderBy('TypeRoom.Type')
+                    ->select("*","TypeRoom.id as roomTypeId")
                     ->get();
         return view('admin.roomtype.index',compact('roomtype'));
         // return view('admin.dormitory.show',compact('roomtype','dormitory'));
@@ -35,7 +35,7 @@ class RoomTypeController extends Controller
      */
     public function create()
     {
-        $roomtype = DB::table('RoomType')->get();
+        $roomtype = DB::table('TypeRoom')->get();
         $dormitory = DormitoryModel::orderBy('id')->get();
         return view('admin.roomtype.create',compact('roomtype','dormitory'));
     }
@@ -84,12 +84,12 @@ class RoomTypeController extends Controller
         ->get(); // ส่งไปcompact
         $roomtype = DB::table('Dormitory') // ส่งไปcompact
         ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
-        ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
+        ->join('TypeRoom','TypeRoom.Type','=','Rooms.Roomtype_ID')
         ->select('*')
-        ->where('RoomType.Dormitory_ID','=',$dormitoryId)
-        ->where('RoomType.Type','=',$type)
+        ->where('TypeRoom.Dormitory_ID','=',$dormitoryId)
+        ->where('TypeRoom.Type','=',$type)
 
-        ->whereColumn('RoomType.Dormitory_ID','=','Rooms.Dormitory_ID')
+        ->whereColumn('TypeRoom.Dormitory_ID','=','Rooms.Dormitory_ID')
         ->get();
 
         return view('admin/roomtype/show',
@@ -112,7 +112,7 @@ class RoomTypeController extends Controller
         // return view('admin.roomtype.edit',compact('roomtype','dormitory'));
 
         $dormitory = DormitoryModel::orderBy('id')->get();
-        $roomtype = DB::table("RoomType")
+        $roomtype = DB::table("TypeRoom")
                     ->where('id','=',$id)
                     ->get();
         return view('admin/roomtype/edit',compact('roomtype','dormitory'));
@@ -133,7 +133,7 @@ class RoomTypeController extends Controller
             'Dormitory_ID'=>'required',
 
         ]);
-        DB::table('RoomType')
+        DB::table('TypeRoom')
             ->where('id','=',$id)
             ->update([
             'Type' => $request->Type,
@@ -157,7 +157,7 @@ class RoomTypeController extends Controller
         //     return redirect()->back();
         // }
 
-        DB::table('RoomType')->where('id','=',$id)->delete();
+        DB::table('TypeRoom')->where('id','=',$id)->delete();
         Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/roomtype');
     }

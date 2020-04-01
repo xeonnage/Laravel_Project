@@ -19,12 +19,9 @@ class RoomController extends Controller
     {
         $room = DB::table('Dormitory')
             ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
-            ->join('RoomType','RoomType.Type','=','Rooms.Roomtype_ID')
-                // ->orderBy('Dormitory.id')
-                // ->orderBy('RoomType.id')
-                // ->groupBy('Rooms.RoomCode_ID')
+            ->join('TypeRoom','TypeRoom.Type','=','Rooms.Roomtype_ID')
                 ->select('*')
-                ->whereColumn('RoomType.Dormitory_ID','=','Rooms.Dormitory_ID')
+                ->whereColumn('TypeRoom.Dormitory_ID','=','Rooms.Dormitory_ID')
                 ->get();
         return view('admin.rooms.index',compact('room'));
     }
@@ -93,12 +90,12 @@ class RoomController extends Controller
         $RoomData =DB::table('Dormitory')
                     ->where('Dormitory.id','=',$id)
                     ->get();
-        $RoomTypeData = DB::table('RoomType')
-                    ->where('RoomType.id','=',$id)
+        $RoomTypeData = DB::table('TypeRoom')
+                    ->where('TypeRoom.id','=',$id)
                     ->get();
-        $roomtype = DB::table('RoomType')
-                    ->join('RoomType','RoomType.id','=','Rooms.Roomtype_ID')
-                    ->where('RoomType.id','=',$id)
+        $roomtype = DB::table('TypeRoom')
+                    ->join('TypeRoom','TypeRoom.id','=','Rooms.Roomtype_ID')
+                    ->where('TypeRoom.id','=',$id)
                     ->get();
 
         return view('admin/roomtype/show',
