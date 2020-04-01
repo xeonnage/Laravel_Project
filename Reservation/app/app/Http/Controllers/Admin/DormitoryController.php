@@ -75,6 +75,7 @@ class DormitoryController extends Controller
         $Dormitory->Description = $request->Description;
 
         $Dormitory->save();
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/dormitory');
 
     }
@@ -135,6 +136,7 @@ class DormitoryController extends Controller
             'Description' => $request->Description,
 
         ]);
+        Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/dormitory');
     }
 
@@ -146,7 +148,9 @@ class DormitoryController extends Controller
      */
     public function destroy($id)
     {
+
         DB::table('Dormitory')->where('id','=',$id)->delete();
+        Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/dormitory');
     }
 

@@ -86,6 +86,7 @@ class UserDetailController extends Controller
         $userdetails->country = $request->country;//ประเทศ
 
         $userdetails->save();
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         return redirect('/home');
     }
 
@@ -178,7 +179,7 @@ class UserDetailController extends Controller
             'country' => $request->country,//ประเทศ
 
         ]);
-
+        Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
         return redirect('/user/UserDetail/show/{id}');
     }
 

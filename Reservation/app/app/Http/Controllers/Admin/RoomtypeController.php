@@ -62,6 +62,7 @@ class RoomTypeController extends Controller
         $Roomtype->Dormitory_ID = $request->Dormitory_ID;
 
         $Roomtype->save();
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/roomtype');
     }
 
@@ -139,6 +140,7 @@ class RoomTypeController extends Controller
             'NumberPeople' => $request->NumberPeople,
             'Dormitory_ID' => $request->Dormitory_ID,
         ]);
+        Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/roomtype');
     }
 
@@ -150,7 +152,13 @@ class RoomTypeController extends Controller
      */
     public function destroy($id)
     {
+        // $roomtype=RoomTypeModel::find($id);
+        // if($roomtype->room->count()>0){
+        //     return redirect()->back();
+        // }
+
         DB::table('RoomType')->where('id','=',$id)->delete();
+        Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/roomtype');
     }
 }

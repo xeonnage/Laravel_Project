@@ -50,7 +50,7 @@ class ProblemTypeController extends Controller
         $problemtype->ProblemName = $request->ProblemName;
 
         $problemtype->save();
-        Session()->flash("success","เพื่มข้อมูลเรียบร้อย");
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         return redirect('/admin/Problemtype');
     }
 
@@ -99,7 +99,7 @@ class ProblemTypeController extends Controller
             ->update([
             'ProblemName' => $request->ProblemName,
         ]);
-
+        Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
         return redirect('/admin/Problemtype');
     }
 
@@ -112,12 +112,14 @@ class ProblemTypeController extends Controller
     public function destroy($id)
     {
         // ProblemTypeModel::destroy($id);
+        Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         DB::table('ProblemType')->where('id','=',$id)->delete();
         return redirect('/admin/problemtype');
     }
     public function delete($id)
     {
         ProblemTypeModel::destroy($id);
+        Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         return redirect('/admin/Problemtype');
     }
 }

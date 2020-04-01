@@ -6,6 +6,7 @@
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
+                {{-- {{Session()->get('success')}} --}}
             @endforeach
         </ul>
     </div>

@@ -74,6 +74,7 @@ class RoomController extends Controller
         // $room->Roomtype_ID = $request->Roomtype_ID;
 
         $room->save();
+        Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/rooms');
 
     }
@@ -136,6 +137,7 @@ class RoomController extends Controller
     public function destroy($RoomCode_ID)
     {
         DB::table('Rooms')->where('RoomCode_ID','=',$RoomCode_ID)->delete();
+        Session()->flash("success","ลบข้อมูลเรียบร้อยแล้ว!");
         return redirect('admin/rooms');
     }
 }
