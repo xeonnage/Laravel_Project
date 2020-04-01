@@ -18,7 +18,7 @@
                 {{csrf_field()}}
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                        <label for="Code_ID" class="col-sm-2">รหัสประชาชน / หนังสือเดินทาง <label style="color:red;"> * </label></label>
+                       <label for="Code_ID" class="col-sm-2">รหัสประชาชน / หนังสือเดินทาง <label style="color:red;"> * </label></label>
                         <input type="text" class="form-control col-sm-10" name="Code_ID" id="Code_ID" placeholder=" ">
                     </div>
 
@@ -65,12 +65,12 @@
                         </div>
                         {{-- <input type="text" class="form-control col-sm-4" name="Gender" id="Gender" placeholder=" "> --}}
 
-                        <label for="Birth_Date" class="col-sm-2">วันเกิด <label style="color:red;"> * </label></label>
+                        <label for="Birth_Date" class="col-sm-2 text-left">วันเกิด <label style="color:red;"> * </label></label>
                         <input type="date" class="form-control col-sm-4" name="Birth_Date" id="Birth_Date" placeholder=" ">
                     </div>
 
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                        <label for="ethnicity" class="col-sm-2">เชื้อชาติ  <label style="color:red;"> * </label></label>
+                        <label for="ethnicity" class="col-sm-2" Style = "text-align:left">เชื้อชาติ  <label style="color:red;"> * </label></label>
                         <input type="text" class="form-control col-sm-2" name="ethnicity" id="ethnicity" placeholder=" ">
 
                         <label for="nationality" class="col-sm-2">สัญชาติ <label style="color:red;"> * </label></label>

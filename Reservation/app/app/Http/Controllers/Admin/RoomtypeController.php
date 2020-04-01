@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\DormitoryModel;
 use App\RoomTypeModel;
 use DB;
-
+use App\RoomModel;
 
 class RoomTypeController extends Controller
 {

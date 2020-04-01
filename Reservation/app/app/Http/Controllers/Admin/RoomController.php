@@ -38,7 +38,7 @@ class RoomController extends Controller
         $type =  $arrayData[1] ;
 
         $room = DB::table('Rooms')->get();
-        // $roomtype = RoomTypeModel::orderBy('id')->get();
+        $roomtype = RoomTypeModel::orderBy('id')->get();
         $dormitory = DormitoryModel::orderBy('id')
                     ->where('Dormitory.id','=',$dormitoryId)
                     ->get();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\UserDetailModel;
+use App\User;
 use DB;
 
 class UserDetailController extends Controller
@@ -28,7 +29,13 @@ class UserDetailController extends Controller
      */
     public function create()
     {
+        // $users = DB::table('users')
+        //     ->join('users','users.email','=','UserDetails.email_ID')
+        //     ->select('*')
+        //     ->whereColumn('users.email','=','UserDetails.email_ID')
+        //     ->get();
         return view('user.userdetails.create');
+        // return view('user.userdetails.create',compact('users'));
     }
 
     /**
@@ -115,7 +122,7 @@ class UserDetailController extends Controller
         // $problemtype = find($id);
         $userdetails = DB::table("UserDetails")
                         ->where('id','=',$id)->get();
-         return view('admin.userdetails.edit',compact('userdetails'));
+        return view('admin.userdetails.edit',compact('userdetails'));
          // return view('admin.userdetails.edit',['userdetails'=> $userdetails]);
 
     }

@@ -14,67 +14,67 @@
 
             <div class="form-inline">
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">รหัสประชาชน / หนังสือเดินทาง</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">รหัสประชาชน / หนังสือเดินทาง</strong>
                     <label>{{ $userdetails[0]->Code_ID}}</label>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">Name </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Firstname_Eng}}&nbsp;&nbsp;{{ $userdetails[0]->Lastname_Eng}}</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">Name </strong>
+                    <label >{{ $userdetails[0]->Firstname_Eng}}&nbsp;&nbsp;{{ $userdetails[0]->Lastname_Eng}}</label>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">ชื่อ-นามสกุล </label>
-                    <label class="col-sm-2" >{{ $userdetails[0]->Firstname_Thai}}&nbsp;&nbsp;{{ $userdetails[0]->Lastname_Thai}}</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">ชื่อ-นามสกุล </strong>
+                    <nav >{{ $userdetails[0]->Firstname_Thai}}&nbsp;&nbsp;{{ $userdetails[0]->Lastname_Thai}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">สถานะ</label>
-                    <label class="col-sm-2" >{{ $userdetails[0]->Status}}</label>
-                    <label for="Firstname_Eng" class="col-sm-2">รหัสนิสิต </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Collegian_ID}}</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">สถานะ</strong>
+                    <nav class="col-sm-2 text-left">{{ $userdetails[0]->Status}}</nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">รหัสนิสิต </strong>
+                    <nav class="col-sm-2 text-left">{{ $userdetails[0]->Collegian_ID}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Gender" class="col-sm-2">เพศ </label>
-                    <label class="col-sm-2" >{{ $userdetails[0]->Status}}</label>
-                    <label for="Firstname_Eng" class="col-sm-2">วันเกิด </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Birth_Date}}</label>
+                    <strong for="Gender" class="col-sm-2">เพศ </strong>
+                    <nav class="col-sm-2 text-left">{{ $userdetails[0]->Gender}}</nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">วันเกิด </strong>
+                    <nav class="col-sm-2 text-left">{{ $userdetails[0]->Birth_Date}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Gender" class="col-sm-2">E-mail </label>
-                    <label class="col-sm-2" > </label>
-                    <label for="Firstname_Eng" class="col-sm-2">เบอร์โทร </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Phone}}</label>
+                    <strong for="Gender" class="col-sm-2">E-mail </strong>
+                    <nav class="col-sm-2" > </nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">เบอร์โทร </strong>
+                    <nav class="col-sm-2 text-left">{{ $userdetails[0]->Phone}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Gender" class="col-sm-2">เชื้อชาติ </label>
-                    <label class="col-sm-2" >{{ $userdetails[0]->ethnicity}}</label>
-                    <label for="Firstname_Eng" class="col-sm-2">สัญชาติ </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->nationality}}</label>
-                    <label for="Firstname_Eng" class="col-sm-2">ศาสนา </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->religion}}</label>
+                    <strong for="Gender" class="col-sm-2">เชื้อชาติ </strong>
+                    <nav class="col-sm-2" >{{ $userdetails[0]->ethnicity}}</nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">สัญชาติ </strong>
+                    <nav class="col-sm-2">{{ $userdetails[0]->nationality}}</nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">ศาสนา </strong>
+                    <nav class="col-sm-2">{{ $userdetails[0]->religion}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Gender" class="col-sm-2">ที่อยุ่ </label>
-                    <label class="col-sm-4" >{{ $userdetails[0]->Address}}</label>
+                    <strong for="Gender" class="col-sm-2">ที่อยุ่ </strong>
+                    <nav class="col-sm-4" >{{ $userdetails[0]->Address}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">ตำบล </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Amphures}}</label>
-                    <label for="Gender" class="col-sm-2">อำเภอ / เขต </label>
-                    <label class="col-sm-2" >{{ $userdetails[0]->Districts}}</label>
-                    <label for="Firstname_Eng" class="col-sm-2">จังหวัด </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->Provinces}}</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">ตำบล </strong>
+                    <nav class="col-sm-2">{{ $userdetails[0]->Amphures}}</nav>
+                    <strong for="Gender" class="col-sm-2">อำเภอ / เขต </strong>
+                    <nav class="col-sm-2" >{{ $userdetails[0]->Districts}}</nav>
+                    <strong for="Firstname_Eng" class="col-sm-2">จังหวัด </strong>
+                    <nav class="col-sm-2">{{ $userdetails[0]->Provinces}}</nav>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">
-                    <label for="Firstname_Eng" class="col-sm-2">ประเทศ </label>
-                    <label class="col-sm-2">{{ $userdetails[0]->country}}</label>
+                    <strong for="Firstname_Eng" class="col-sm-2">ประเทศ </strong>
+                    <nav class="col-sm-2">{{ $userdetails[0]->country}}</nav>
 
                 </div>
 

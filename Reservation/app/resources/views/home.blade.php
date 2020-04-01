@@ -21,7 +21,8 @@
                     @if( Auth::user()->checkIsAdmin() )
                         <a href="admin/dormitory" class="btn btn-primary">Management</a>
                     @endif
-                    <a href="user/UserDetail/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                    <a href="user/UserDetail/create " class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                    {{-- <a href="{{ route('user.UserDetail.create'$users[0]->id.":".$email) }}" >เพื่มข้อมูลส่วนตัว </a> --}}
 
                     <a href="" class="btn btn-success">Home</a>
                 </div>
