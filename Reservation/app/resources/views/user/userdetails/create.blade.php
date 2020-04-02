@@ -1,6 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -13,6 +14,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="table-responsive">
+        {{-- @if( sizeof($roomtype) == 0) --}}
+            {{Auth::user()->id }}
             <p><h2>เพื่มข้อมูลประวัติส่วนตัว </h2></p>
             <form action="/user/UserDetail/create" method="post" >
                 {{csrf_field()}}

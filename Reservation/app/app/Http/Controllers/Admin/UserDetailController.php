@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\UserDetailModel;
 use App\User;
+
 use DB;
 
 class UserDetailController extends Controller
@@ -27,14 +29,16 @@ class UserDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( )
     {
         // $users = DB::table('users')
         //     ->join('users','users.email','=','UserDetails.email_ID')
         //     ->select('*')
         //     ->whereColumn('users.email','=','UserDetails.email_ID')
         //     ->get();
-        return view('user.userdetails.create');
+
+        $user = DB::table('users')->get();
+        return view('user.userdetails.create',compact('user'));
         // return view('user.userdetails.create',compact('users'));
     }
 
@@ -48,9 +52,10 @@ class UserDetailController extends Controller
     {
         $userdetails = new UserDetailModel;
         $request->validate([
+            // 'email_ID' => 'required',
             'Code_ID' => 'required|unique:UserDetails', //รหัสประชาชน
             'Status' => 'required',//สถานะ นิสิต/บุคคลทั่วไป
-            'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
+            // 'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
             'Firstname_Thai' => 'required',//ชืื่อ ไทย
             'Lastname_Thai' => 'required',//นามสกุล ไทย
             'Firstname_Eng' => 'required',//ชื่อ อิ้ง
@@ -61,15 +66,16 @@ class UserDetailController extends Controller
             'religion' => 'required',//ศาสนา
             'Birth_Date' => 'required',//วันเกิด
             'Phone' => 'required',//เบอร์โทร
-            'Faculty' => 'required',//คณะ
-            'Major' => 'required',//สาขา
-            'Level' => 'required',//ชั้นปี
+            // 'Faculty' => 'required',//คณะ
+            // 'Major' => 'required',//สาขา
+            // 'Level' => 'required',//ชั้นปี
             'Address' => 'required',//ที่อยุ่
             'Amphures' => 'required',//ตำบล
             'Districts' => 'required',//อำเภอ
             'Provinces' => 'required',//จังหวัด
             'country' => 'required',//ประเทศ
         ]);
+        $userdetails->user_ID = Auth::user()->id ;
         $userdetails->Code_ID = $request->Code_ID;//รหัสประชาชน
         $userdetails->Status = $request->Status;//สถานะ นิสิต/บุคคลทั่วไป
         $userdetails->Collegian_ID = $request->Collegian_ID;//รหัสนิสิต

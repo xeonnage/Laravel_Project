@@ -82,6 +82,7 @@
                         </td>
                     </tr>
                     </tbody>
+
                 @endforeach
                 @else
                 <tr>

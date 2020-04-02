@@ -23,7 +23,8 @@ class RoomTypeController extends Controller
                     ->orderBy('Dormitory.id')
                     ->orderBy('TypeRoom.Type')
                     ->select("*","TypeRoom.id as roomTypeId")
-                    ->get();
+                    ->paginate(20);
+                    // ->get();
         return view('admin.roomtype.index',compact('roomtype'));
         // return view('admin.dormitory.show',compact('roomtype','dormitory'));
     }
@@ -88,9 +89,13 @@ class RoomTypeController extends Controller
         ->select('*')
         ->where('TypeRoom.Dormitory_ID','=',$dormitoryId)
         ->where('TypeRoom.Type','=',$type)
+        ->orderBy('Rooms.RoomCode_ID')
 
         ->whereColumn('TypeRoom.Dormitory_ID','=','Rooms.Dormitory_ID')
         ->get();
+
+        // ->paginate(20);
+
 
         return view('admin/roomtype/show',
                 compact('roomtype','dormitory','type'));

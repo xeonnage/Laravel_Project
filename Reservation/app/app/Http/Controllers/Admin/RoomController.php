@@ -18,11 +18,15 @@ class RoomController extends Controller
     public function index()
     {
         $room = DB::table('Dormitory')
-            ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
-            ->join('TypeRoom','TypeRoom.Type','=','Rooms.Roomtype_ID')
+                ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
+                ->join('TypeRoom','TypeRoom.Type','=','Rooms.Roomtype_ID')
                 ->select('*')
                 ->whereColumn('TypeRoom.Dormitory_ID','=','Rooms.Dormitory_ID')
-                ->get();
+                // ->get();
+
+                ->orderBy('Rooms.Dormitory_ID')
+                ->orderBy('Rooms.RoomCode_ID')
+                ->paginate(20);
         return view('admin.rooms.index',compact('room'));
     }
 
@@ -42,6 +46,18 @@ class RoomController extends Controller
         $dormitory = DormitoryModel::orderBy('id')
                     ->where('Dormitory.id','=',$dormitoryId)
                     ->get();
+
+        $room = DB::table('Dormitory')
+                    ->join('Rooms','Dormitory.id','=','Rooms.Dormitory_ID')
+                    ->join('TypeRoom','TypeRoom.Type','=','Rooms.Roomtype_ID')
+                    ->select('*')
+                    ->whereColumn('TypeRoom.Dormitory_ID','=','Rooms.Dormitory_ID')
+                    // ->get();
+                    ->orderBy('Rooms.RoomCode_ID')
+                    ->orderBy('Rooms.Dormitory_ID')
+
+                    ->paginate(20);
+
         return view('admin.rooms.create',compact('room','type','dormitory'));
     }
 
@@ -51,9 +67,11 @@ class RoomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
         $room = new RoomModel;
+        $type = RoomTypeModel::all();
+        $dormitory = DormitoryModel::all();
 
         $request->validate([
             'RoomCode_ID' => 'required|unique:RoomCode_ID',
@@ -72,7 +90,11 @@ class RoomController extends Controller
 
         $room->save();
         Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
-        return redirect('admin/rooms');
+        // return redirect('admin/rooms');
+
+        return view('admin.roomtype.show',compact('room','type','dormitory'));
+
+
 
     }
 
@@ -96,7 +118,10 @@ class RoomController extends Controller
         $roomtype = DB::table('TypeRoom')
                     ->join('TypeRoom','TypeRoom.id','=','Rooms.Roomtype_ID')
                     ->where('TypeRoom.id','=',$id)
-                    ->get();
+                    // ->get();
+
+                    ->paginate(20);
+
 
         return view('admin/roomtype/show',
                 compact('roomtype','RoomTypeData','DormitoryData'));

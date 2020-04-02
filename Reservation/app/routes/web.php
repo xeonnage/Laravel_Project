@@ -11,8 +11,6 @@
 |
 */
 Route::middleware(['auth','IsAdmin'])->group(function(){
-
-
     // Route::Resource('admin/problemtype','Admin\ProblemTypeController');
     Route::get('admin/Problemtype','Admin\ProblemTypeController@create');
     Route::get('admin/Problemtype','Admin\ProblemTypeController@index');
@@ -23,20 +21,21 @@ Route::middleware(['auth','IsAdmin'])->group(function(){
 
     Route::Resource('admin/dormitory','Admin\DormitoryController');
     Route::Resource('admin/roomtype','Admin\RoomTypeController');
-
     Route::Resource('admin/rooms','Admin\RoomController',['except' => 'create'] );
 
     Route::get('admin/rooms/create/{id}', 'Admin\RoomController@create')->name('rooms.create');;
 
-    Route::Resource('admin/Reservations','Admin\ReservationsController',['except' => 'create'] );
+    // Route::Resource('admin/Reservations','Admin\ReservationsController',['except' => 'create'] );
 
 
     Route::Resource('admin/reportproblem','Admin\reportproblemController');
+
+    Route::get('admin/user/UserDetail','Admin\UserDetailController@index');
 });
 
 
 //userDeTail
-Route::get('admin/user/UserDetail','Admin\UserDetailController@index');
+
 Route::get('user/UserDetail/create','Admin\UserDetailController@create');
 Route::post('user/UserDetail/create','Admin\UserDetailController@store');
 Route::get('user/UserDetail/show/{id}','Admin\UserDetailController@show');
@@ -45,7 +44,9 @@ Route::post('user/UserDetail/update/{id}','Admin\UserDetailController@update');
 Route::get('user/UserDetail/delete/{id}','Admin\UserDetailController@delete');
 
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 
@@ -56,7 +57,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
