@@ -17,7 +17,8 @@
         {{-- @if( sizeof($roomtype) == 0) --}}
             {{Auth::user()->id }}
             <p><h2>เพื่มข้อมูลประวัติส่วนตัว </h2></p>
-            <form action="/user/UserDetail/create" method="post" >
+            <form action="{{ route('UserDetail.store') }}" method="post">
+            {{-- <form action="/user/UserDetail/create" method="post" > --}}
                 {{csrf_field()}}
                 <div class="form-inline">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 my-2">

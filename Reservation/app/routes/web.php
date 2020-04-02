@@ -30,18 +30,19 @@ Route::middleware(['auth','IsAdmin'])->group(function(){
 
     Route::Resource('admin/reportproblem','Admin\reportproblemController');
 
-    Route::get('admin/user/UserDetail','Admin\UserDetailController@index');
-});
+    // Route::get('admin/user/UserDetail','Admin\UserDetailController@index');
 
+});
+Route::Resource('user/UserDetail','Admin\UserDetailController');
 
 //userDeTail
 
-Route::get('user/UserDetail/create','Admin\UserDetailController@create');
-Route::post('user/UserDetail/create','Admin\UserDetailController@store');
-Route::get('user/UserDetail/show/{id}','Admin\UserDetailController@show');
-Route::get('user/UserDetail/edit/{id}','Admin\UserDetailController@edit');
-Route::post('user/UserDetail/update/{id}','Admin\UserDetailController@update');
-Route::get('user/UserDetail/delete/{id}','Admin\UserDetailController@delete');
+// Route::get('user/UserDetail/create','Admin\UserDetailController@create');
+// Route::post('user/UserDetail/create','Admin\UserDetailController@store');
+// Route::get('user/UserDetail/show/{id}','Admin\UserDetailController@show');
+// Route::get('user/UserDetail/edit/{id}','Admin\UserDetailController@edit');
+// Route::post('user/UserDetail/update/{id}','Admin\UserDetailController@update');
+// Route::get('user/UserDetail/delete/{id}','Admin\UserDetailController@delete');
 
 
 Auth::routes();

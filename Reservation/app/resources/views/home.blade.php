@@ -22,16 +22,24 @@
                     @if( Auth::user()->checkIsAdmin() )
                         <a href="admin/dormitory" class="btn btn-primary">Management</a>
                     @endif
-
+                    {{-- {{$userdetail->user_ID}} --}}
                     {{-- ชื่อตัวแปร  อ้อตัวแปลนี้มาจาก compact ปะ ที่ส่งค่ามา ใช่ๆ เดี๋ยวทดสอบรหัสที่ไม่ข้อมูลแปป --}}
+
                     @if(  sizeof($userdetail ) == 1  )
-                        <a href="" class="btn btn-primary">แก้ไขข้อมูลส่วนตัว</a>
+                        {{-- <a href="user/UserDetail/edit/{{Auth::user()->id}}" class="btn btn-primary">แก้ไขข้อมูลส่วนตัว</a> --}}
+                        <a href="{{ route('UserDetail.edit',Auth::user()->id ) }} " class="btn btn-primary">แก้ไขข้อมูลส่วนตัว</a>
                     @else
-                        <a href="user/UserDetail/create " class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
+                        {{-- <a href="user/UserDetail/create" class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a> --}}
+                        <a href="{{ route('UserDetail.create') }} " class="btn btn-primary">เพื่มข้อมูลส่วนตัว</a>
                     @endif
                         {{-- {{ sizeof($5) }} --}}
-                    &nbsp;
-                    <a href="" class="btn btn-success">จองห้อง</a> &nbsp;
+
+                    @if(  sizeof($userdetail ) == 1  )
+                        <a href="{{Auth::user()->id}}" class="btn btn-primary">จองห้อง</a>
+                    @else
+                        <a href="{{Auth::user()->id}}" onclick="return confirm('คุณยังไม่ได้เพื่มข้อมูลส่วนตัว \nกรุณาเพื่มข้อมูลส่วนตัวก่อน ไม่งั้นจะจองห้องไม่ได้ค่ะ')" class="btn btn-danger">จองห้อง</a>
+                    @endif
+
                     <a href="" class="btn btn-success">Home</a>
                     </center>
                 </div>

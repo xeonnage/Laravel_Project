@@ -126,10 +126,15 @@ class UserDetailController extends Controller
     public function edit($id)
     {
         // $problemtype = find($id);
-        $userdetails = DB::table("UserDetails")
-                        ->where('id','=',$id)->get();
-        return view('admin.userdetails.edit',compact('userdetails'));
-         // return view('admin.userdetails.edit',['userdetails'=> $userdetails]);
+        $id = Auth::user()->id;
+
+        $userdetail = DB::table('UserDetails')
+                        // ->join('users','users.id','=','UserDetails.user_ID')
+                        // ->selcet('*')
+                        ->where('user_ID','=',$id)
+                        ->get();
+        return view('user.userdetails.edit',compact('userdetail'));
+
 
     }
 
@@ -142,7 +147,9 @@ class UserDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
+            // 'user_ID'=> $request->Auth::user()->id,
             'Code_ID' => 'required|unique:UserDetails', //รหัสประชาชน
             'Status' => 'required',//สถานะ นิสิต/บุคคลทั่วไป
             'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
@@ -167,8 +174,9 @@ class UserDetailController extends Controller
         ]);
 
         DB::table('UserDetails')
-            ->where('id','=',$id)
+            ->where('user_ID','=',$id)
             ->update([
+            // 'user_ID'=> $request->user_ID,
             'Code_ID' => $request->Code_ID,//รหัสประชาชน
             'Status' => $request->Status,//สถานะ นิสิต/บุคคลทั่วไป
             'Collegian_ID' => $request->Collegian_ID,//รหัสนิสิต
@@ -190,10 +198,13 @@ class UserDetailController extends Controller
             'Districts' => $request->Districts,//อำเภอ
             'Provinces' => $request->Provinces,//จังหวัด
             'country' => $request->country,//ประเทศ
-
         ]);
+        // $userdetail=UserDetailModel::find($id);
+
         Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
-        return redirect('/user/UserDetail/show/{id}');
+
+        return redirect('user/UserDetail/create');
+        // return view('home');
     }
 
     /**
