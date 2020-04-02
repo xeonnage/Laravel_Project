@@ -92,8 +92,7 @@ class RoomController extends Controller
         Session()->flash("success","เพื่มข้อมูลเรียบร้อยแล้ว!");
         // return redirect('admin/rooms');
 
-        return view('admin.roomtype.show',compact('room','type','dormitory'));
-
+        return redirect('/admin/rooms',compact('room','type','dormitory'));
 
 
     }

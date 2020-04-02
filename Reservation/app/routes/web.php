@@ -22,19 +22,19 @@ Route::middleware(['auth','IsAdmin'])->group(function(){
     Route::Resource('admin/dormitory','Admin\DormitoryController');
     Route::Resource('admin/roomtype','Admin\RoomTypeController');
     Route::Resource('admin/rooms','Admin\RoomController',['except' => 'create'] );
-
     Route::get('admin/rooms/create/{id}', 'Admin\RoomController@create')->name('rooms.create');;
 
-    // Route::Resource('admin/Reservations','Admin\ReservationsController',['except' => 'create'] );
-
-
-    Route::Resource('admin/reportproblem','Admin\reportproblemController');
 
     // Route::get('admin/user/UserDetail','Admin\UserDetailController@index');
 
 });
 Route::Resource('user/UserDetail','Admin\UserDetailController');
 
+// Route::Resource('user/Reservations','Admin\ReservationController',['except' => 'create']);
+// Route::get('user/Reservations/create/{id}', 'Admin\ReservationController@create')->name('reservations.create');;
+// Route::Resource('user/reportproblem','Admin\reportproblemController');
+Route::get('user/reservations/index','Admin\ReservationController@index');
+Route::get('user/reservations/create/{id}','Admin\ReservationController@create');
 //userDeTail
 
 // Route::get('user/UserDetail/create','Admin\UserDetailController@create');

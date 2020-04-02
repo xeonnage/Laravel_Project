@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <label style="font-size: 20px; font-weight: bold;" >ข้อมูลประเภทหอพัก </label>&nbsp;&nbsp;
-                <a href="/admin/roomtype"> แสดงประเภทห้องพักทั้งหมด </a>
+                {{-- <a href="/admin/roomtype"> แสดงประเภทห้องพักทั้งหมด </a> --}}
 
             </div>
                 @csrf
