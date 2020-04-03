@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-// use App\Http\Controllers\DB;
-use App\UserDetailModel;
-use DB;
 
 class HomeController extends Controller
 {
@@ -28,12 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id =  Auth::user()->id ;
-        $userdetail = DB::table('UserDetails')
-                        ->where('UserDetails.user_ID','=',$id)
-                        ->get();
-        return view('home',compact('userdetail'));
-
-
+        return view('home');
     }
 }

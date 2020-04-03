@@ -59,7 +59,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="images/buu.jpg" alt="First slide">
+            <img class="first-slide" src="images/home/TCAS-Logo.png" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
                 {{-- <h1>Example headline.</h1>
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide" src="images/hotel3_15.png" alt="Second slide">
+            <img class="second-slide" src="images/home/exam_.png" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
                 {{-- <h1>Another example headline.</h1>
@@ -79,7 +79,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="images/2.jpg" alt="Third slide">
+            <img class="third-slide" src="images/home/exam.png" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
                 {{-- <h1>One more for good measure.</h1>
@@ -117,25 +117,25 @@
            <div class="col-lg-3">
                 <center><img class="rounded-circle" src="images/icon-12.jpg" alt="Generic placeholder image" width="140" height="140"></center>
                 <p></p>
-                <center><p><a class="btn btn-success" href="/admin/subjects" role="button">จองห้องพัก </a></p></center>
+                <center><p><a class="btn btn-success" href="/admin/subjects" role="button">วิชาที่เปิดสอบ </a></p></center>
            </div><!-- /.col-lg-4 -->
 
            <div class="col-lg-3">
                 <center><img class="rounded-circle" src="images/icon-14.jpg" alt="Generic placeholder image" width="140" height="140"></center>
                 <p></p>
-                <center><p><a class="btn btn-primary" href="admin/userDetails" role="button">รายชื่อหอพัก </a></p></center>
+                <center><p><a class="btn btn-primary" href="admin/userDetails" role="button">รายชื่อผู้ลงสอบ </a></p></center>
            </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-3">
-                <center><a href="login"><img class="rounded-circle" src="images/icon-13.jpg" alt="Generic placeholder image" width="140" height="140"></a></center>
+                <center><img class="rounded-circle" src="images/icon-13.jpg" alt="Generic placeholder image" width="140" height="140"></center>
                 <p></p>
-                <center><p><a class="btn btn-warning" href="login" role="button">เข้าสู่ระบบ </a></p></center>
+                <center><p><a class="btn btn-warning" href="admin/exams" role="button">สถานที่สอบ </a></p></center>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-lg-3">
-                <center><a href="register" ><img class="rounded-circle" src="images/icon-15.jpg" alt="Generic placeholder image" width="140" height="140"></a></center>
+                <center><img class="rounded-circle" src="images/icon-15.jpg" alt="Generic placeholder image" width="140" height="140"></center>
                 <p></p>
-                <center><p><a class="btn btn-danger" href="register" role="button">ลงทะเบียน </a></p></center>
+                <center><p><a class="btn btn-danger" href="admin/registers" role="button">ลงทะเบียน </a></p></center>
             </div><!-- /.col-lg-4 -->
 
         </div><!-- /.row -->

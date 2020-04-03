@@ -8,7 +8,6 @@ class UserDetailModel extends Model
 {
     protected $table="UserDetails";
     protected $fillable = [
-        'user_ID',
         'Code_ID', //รหัสประชาชน
         'Status',//สถานะ นิสิต/บุคคลทั่วไป
         'Collegian_ID',//รหัสนิสิต

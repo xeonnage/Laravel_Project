@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\UserDetailModel;
-use App\User;
-
 use DB;
 
 class UserDetailController extends Controller
@@ -29,17 +26,9 @@ class UserDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( )
+    public function create()
     {
-        // $users = DB::table('users')
-        //     ->join('users','users.email','=','UserDetails.email_ID')
-        //     ->select('*')
-        //     ->whereColumn('users.email','=','UserDetails.email_ID')
-        //     ->get();
-
-        $user = DB::table('users')->get();
-        return view('user.userdetails.create',compact('user'));
-        // return view('user.userdetails.create',compact('users'));
+        return view('user.userdetails.create');
     }
 
     /**
@@ -52,10 +41,9 @@ class UserDetailController extends Controller
     {
         $userdetails = new UserDetailModel;
         $request->validate([
-            // 'email_ID' => 'required',
             'Code_ID' => 'required|unique:UserDetails', //รหัสประชาชน
             'Status' => 'required',//สถานะ นิสิต/บุคคลทั่วไป
-            // 'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
+            'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
             'Firstname_Thai' => 'required',//ชืื่อ ไทย
             'Lastname_Thai' => 'required',//นามสกุล ไทย
             'Firstname_Eng' => 'required',//ชื่อ อิ้ง
@@ -66,16 +54,15 @@ class UserDetailController extends Controller
             'religion' => 'required',//ศาสนา
             'Birth_Date' => 'required',//วันเกิด
             'Phone' => 'required',//เบอร์โทร
-            // 'Faculty' => 'required',//คณะ
-            // 'Major' => 'required',//สาขา
-            // 'Level' => 'required',//ชั้นปี
+            'Faculty' => 'required',//คณะ
+            'Major' => 'required',//สาขา
+            'Level' => 'required',//ชั้นปี
             'Address' => 'required',//ที่อยุ่
             'Amphures' => 'required',//ตำบล
             'Districts' => 'required',//อำเภอ
             'Provinces' => 'required',//จังหวัด
             'country' => 'required',//ประเทศ
         ]);
-        $userdetails->user_ID = Auth::user()->id ;
         $userdetails->Code_ID = $request->Code_ID;//รหัสประชาชน
         $userdetails->Status = $request->Status;//สถานะ นิสิต/บุคคลทั่วไป
         $userdetails->Collegian_ID = $request->Collegian_ID;//รหัสนิสิต
@@ -126,15 +113,10 @@ class UserDetailController extends Controller
     public function edit($id)
     {
         // $problemtype = find($id);
-        $id = Auth::user()->id;
-
-        $userdetail = DB::table('UserDetails')
-                        // ->join('users','users.id','=','UserDetails.user_ID')
-                        // ->selcet('*')
-                        ->where('user_ID','=',$id)
-                        ->get();
-        return view('user.userdetails.edit',compact('userdetail'));
-
+        $userdetails = DB::table("UserDetails")
+                        ->where('id','=',$id)->get();
+         return view('admin.userdetails.edit',compact('userdetails'));
+         // return view('admin.userdetails.edit',['userdetails'=> $userdetails]);
 
     }
 
@@ -147,9 +129,7 @@ class UserDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $request->validate([
-            // 'user_ID'=> $request->Auth::user()->id,
             'Code_ID' => 'required|unique:UserDetails', //รหัสประชาชน
             'Status' => 'required',//สถานะ นิสิต/บุคคลทั่วไป
             'Collegian_ID' => 'required|unique:UserDetails',//รหัสนิสิต
@@ -174,9 +154,8 @@ class UserDetailController extends Controller
         ]);
 
         DB::table('UserDetails')
-            ->where('user_ID','=',$id)
+            ->where('id','=',$id)
             ->update([
-            // 'user_ID'=> $request->user_ID,
             'Code_ID' => $request->Code_ID,//รหัสประชาชน
             'Status' => $request->Status,//สถานะ นิสิต/บุคคลทั่วไป
             'Collegian_ID' => $request->Collegian_ID,//รหัสนิสิต
@@ -198,13 +177,10 @@ class UserDetailController extends Controller
             'Districts' => $request->Districts,//อำเภอ
             'Provinces' => $request->Provinces,//จังหวัด
             'country' => $request->country,//ประเทศ
+
         ]);
-        // $userdetail=UserDetailModel::find($id);
-
         Session()->flash("success","อัพเดทข้อมูลเรียบร้อยแล้ว!");
-
-        return redirect('user/UserDetail/create');
-        // return view('home');
+        return redirect('/user/UserDetail/show/{id}');
     }
 
     /**
